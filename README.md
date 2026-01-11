@@ -40,20 +40,4 @@ Plataforma completa de analytics e gestão para criadores de conteúdo do YouTub
 - **CI/CD**: GitHub Actions
 - **Monitoring**: Prometheus + Grafana
 
-## 🚀 Começando
 
-### Pré-requisitos
-
-- Node.js 18+
-- Docker & Docker Compose
-- PostgreSQL 15+
-- Redis 7+
-
-### Instalação
-
-1. **Clone o repositório**
-
-```bash
-git clone https://github.com/seu-usuario/youtube-analytics-platform.git
-cd youtube-analytics-platform
-```
