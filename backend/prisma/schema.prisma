@@ -1,0 +1,463 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ========== USER MODELS ==========
+model User {
+  id             String         @id @default(cuid())
+  email          String         @unique @db.VarChar(255)
+  name           String?        @db.VarChar(255)
+  password       String
+  avatarUrl      String?        @db.VarChar(500)
+  
+  // Auth
+  role           Role           @default(USER)
+  emailVerified  Boolean        @default(false)
+  verificationToken String?     @unique
+  resetToken     String?        @unique
+  resetTokenExpires DateTime?
+  
+  // Preferences
+  timezone       String?        @default("UTC") @db.VarChar(50)
+  language       String?        @default("en-US") @db.VarChar(10)
+  theme          String?        @default("cyberpunk") @db.VarChar(20)
+  
+  // Stats
+  lastLoginAt    DateTime?
+  loginCount     Int            @default(0)
+  
+  // Relations
+  channels       Channel[]
+  subscriptions  Subscription[]
+  sessions       Session[]
+  notifications  Notification[]
+  invoices       Invoice[]
+  paymentMethods PaymentMethod[]
+  teamMembers    TeamMember[]
+  
+  // Timestamps
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  @@index([email])
+  @@index([createdAt])
+}
+
+model Session {
+  id             String         @id @default(cuid())
+  userId         String
+  user           User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Session data
+  token          String         @unique @db.VarChar(500)
+  ipAddress      String?        @db.VarChar(45)
+  userAgent      String?        @db.Text
+  expiresAt      DateTime
+  
+  // Timestamps
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  @@index([userId])
+  @@index([token])
+  @@index([expiresAt])
+}
+
+// ========== YOUTUBE MODELS ==========
+model Channel {
+  id             String         @id @default(cuid())
+  youtubeId      String         @unique @db.VarChar(100)
+  title          String         @db.VarChar(255)
+  description    String?        @db.Text
+  customUrl      String?        @db.VarChar(255)
+  thumbnail      String?        @db.VarChar(500)
+  
+  // Stats
+  subscriberCount Int?          @default(0)
+  viewCount       Int?          @default(0)
+  videoCount      Int?          @default(0)
+  
+  // Country and category
+  country         String?       @db.VarChar(2)
+  categoryId      String?       @db.VarChar(50)
+  
+  // Relations
+  userId         String
+  user           User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  videos         Video[]
+  channelStats   ChannelStat[]
+  
+  // Sync info
+  lastSyncedAt   DateTime?
+  syncStatus     SyncStatus     @default(PENDING)
+  syncError      String?        @db.Text
+  
+  // Timestamps
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  @@index([userId])
+  @@index([youtubeId])
+  @@index([createdAt])
+}
+
+model Video {
+  id             String         @id @default(cuid())
+  youtubeId      String         @unique @db.VarChar(100)
+  title          String         @db.VarChar(500)
+  description    String?        @db.Text
+  thumbnail      String?        @db.VarChar(500)
+  
+  // Metadata
+  publishedAt    DateTime
+  duration       String?        @db.VarChar(20)
+  categoryId     String?        @db.VarChar(50)
+  tags           String[]       @db.VarChar(100)[]
+  
+  // Stats
+  viewCount      Int            @default(0)
+  likeCount      Int            @default(0)
+  commentCount   Int            @default(0)
+  favoriteCount  Int            @default(0)
+  
+  // SEO
+  seoScore       Int?           @default(0)
+  keywordRankings KeywordRanking[]
+  
+  // Relations
+  channelId      String
+  channel        Channel        @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  videoStats     VideoStat[]
+  
+  // Timestamps
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  @@index([channelId])
+  @@index([youtubeId])
+  @@index([publishedAt])
+  @@index([viewCount])
+}
+
+model ChannelStat {
+  id             String         @id @default(cuid())
+  channelId      String
+  channel        Channel        @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  
+  // Stats at point in time
+  date           DateTime
+  subscriberCount Int
+  viewCount      Int
+  videoCount     Int
+  
+  // Engagement
+  estimatedMinutesWatched Int?
+  
+  @@unique([channelId, date])
+  @@index([channelId])
+  @@index([date])
+}
+
+model VideoStat {
+  id             String         @id @default(cuid())
+  videoId        String
+  video          Video          @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  
+  // Stats at point in time
+  date           DateTime
+  viewCount      Int
+  likeCount      Int
+  commentCount   Int
+  shareCount     Int?
+  
+  // Audience retention
+  averageViewDuration Int?      // in seconds
+  averageViewPercentage Float?  // percentage
+  
+  @@unique([videoId, date])
+  @@index([videoId])
+  @@index([date])
+}
+
+// ========== BILLING MODELS ==========
+model Subscription {
+  id               String         @id @default(cuid())
+  userId           String
+  user             User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Plan
+  plan             PlanType       @default(FREE)
+  billingCycle     BillingCycle   @default(MONTHLY)
+  
+  // Stripe
+  stripeCustomerId String?        @unique
+  stripeSubscriptionId String?    @unique
+  stripePriceId    String?
+  
+  // Status
+  status           SubscriptionStatus @default(ACTIVE)
+  cancelAtPeriodEnd Boolean       @default(false)
+  
+  // Dates
+  currentPeriodStart DateTime?
+  currentPeriodEnd   DateTime?
+  trialStart        DateTime?
+  trialEnd          DateTime?
+  canceledAt        DateTime?
+  
+  // Limits
+  maxChannels      Int            @default(3)
+  maxTeamMembers   Int            @default(1)
+  
+  // Features
+  features         SubscriptionFeature[]
+  
+  // Timestamps
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  @@index([userId])
+  @@index([status])
+  @@index([plan])
+}
+
+model SubscriptionFeature {
+  id               String         @id @default(cuid())
+  subscriptionId   String
+  subscription     Subscription   @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+  
+  // Feature
+  code             String         @db.VarChar(100)
+  name             String         @db.VarChar(255)
+  description      String?        @db.Text
+  enabled          Boolean        @default(true)
+  limit            Int?
+  used             Int?           @default(0)
+  
+  @@unique([subscriptionId, code])
+  @@index([subscriptionId])
+}
+
+model Invoice {
+  id               String         @id @default(cuid())
+  userId           String
+  user             User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subscriptionId   String?
+  subscription     Subscription?  @relation(fields: [subscriptionId], references: [id])
+  
+  // Stripe
+  stripeInvoiceId  String?        @unique
+  stripePaymentIntentId String?
+  
+  // Invoice details
+  number           String         @unique @db.VarChar(50)
+  status           InvoiceStatus  @default(DRAFT)
+  
+  // Amounts
+  amount           Decimal        @db.Decimal(10, 2)
+  tax              Decimal        @db.Decimal(10, 2) @default(0)
+  total            Decimal        @db.Decimal(10, 2)
+  currency         String         @default("USD") @db.VarChar(3)
+  
+  // Dates
+  invoiceDate      DateTime
+  dueDate          DateTime?
+  paidAt           DateTime?
+  
+  // PDF
+  pdfUrl           String?        @db.VarChar(500)
+  
+  // Line items (stored as JSON)
+  lineItems        Json           @default("[]")
+  
+  // Timestamps
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  @@index([userId])
+  @@index([subscriptionId])
+  @@index([status])
+  @@index([invoiceDate])
+}
+
+model PaymentMethod {
+  id               String         @id @default(cuid())
+  userId           String
+  user             User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Type
+  type             PaymentMethodType @default(CARD)
+  isDefault        Boolean        @default(false)
+  
+  // Card details
+  cardBrand        String?        @db.VarChar(50)
+  cardLast4        String?        @db.VarChar(4)
+  cardExpMonth     Int?
+  cardExpYear      Int?
+  
+  // Stripe
+  stripePaymentMethodId String?   @unique
+  
+  // Timestamps
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  @@index([userId])
+  @@index([isDefault])
+}
+
+// ========== OTHER MODELS ==========
+model Notification {
+  id               String         @id @default(cuid())
+  userId           String
+  user             User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Notification
+  title            String         @db.VarChar(255)
+  message          String         @db.Text
+  type             NotificationType @default(INFO)
+  data             Json?          // Additional data
+  read             Boolean        @default(false)
+  
+  // Action
+  actionUrl        String?        @db.VarChar(500)
+  actionLabel      String?        @db.VarChar(100)
+  
+  // Timestamps
+  createdAt        DateTime       @default(now())
+
+  @@index([userId])
+  @@index([read])
+  @@index([createdAt])
+}
+
+model TeamMember {
+  id               String         @id @default(cuid())
+  userId           String         // Owner/Admin
+  user             User           @relation("Owner", fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Member
+  memberEmail      String         @db.VarChar(255)
+  memberName       String?        @db.VarChar(255)
+  role             TeamRole       @default(MEMBER)
+  permissions      Json           @default("[]")
+  
+  // Status
+  status           TeamMemberStatus @default(PENDING)
+  invitationToken  String?        @unique
+  invitedAt        DateTime       @default(now())
+  joinedAt         DateTime?
+  
+  // Relations
+  channels         TeamChannel[]
+  
+  @@unique([userId, memberEmail])
+  @@index([userId])
+  @@index([memberEmail])
+}
+
+model TeamChannel {
+  id               String         @id @default(cuid())
+  teamMemberId     String
+  teamMember       TeamMember     @relation(fields: [teamMemberId], references: [id], onDelete: Cascade)
+  
+  channelId        String
+  channel          Channel        @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  
+  permissions      Json           @default("[]")
+  
+  @@unique([teamMemberId, channelId])
+}
+
+model KeywordRanking {
+  id               String         @id @default(cuid())
+  videoId          String
+  video            Video          @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  
+  keyword          String         @db.VarChar(255)
+  position         Int
+  date             DateTime
+  
+  @@unique([videoId, keyword, date])
+  @@index([videoId])
+  @@index([keyword])
+  @@index([date])
+}
+
+// ========== ENUMS ==========
+enum Role {
+  USER
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum PlanType {
+  FREE
+  PRO
+  BUSINESS
+  ENTERPRISE
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELED
+  PAST_DUE
+  UNPAID
+  TRIALING
+  INCOMPLETE
+  INCOMPLETE_EXPIRED
+}
+
+enum BillingCycle {
+  MONTHLY
+  YEARLY
+}
+
+enum InvoiceStatus {
+  DRAFT
+  OPEN
+  PAID
+  VOID
+  UNCOLLECTIBLE
+}
+
+enum PaymentMethodType {
+  CARD
+  BANK_TRANSFER
+  PAYPAL
+}
+
+enum SyncStatus {
+  PENDING
+  SYNCING
+  COMPLETED
+  FAILED
+}
+
+enum NotificationType {
+  INFO
+  WARNING
+  ERROR
+  SUCCESS
+  SYSTEM
+}
+
+enum TeamRole {
+  OWNER
+  ADMIN
+  MANAGER
+  MEMBER
+  VIEWER
+}
+
+enum TeamMemberStatus {
+  PENDING
+  ACTIVE
+  INACTIVE
+  REJECTED
+}
