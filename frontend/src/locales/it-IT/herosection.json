@@ -1,0 +1,51 @@
+{
+  "badge": {
+    "text": "Lo strumento preferito dai migliori creator"
+  },
+  "headline": {
+    "line1": "Domina",
+    "line2": "l’Algoritmo di YouTube"
+  },
+  "description": {
+    "text": "Piattaforma completa con {ai} per ricerca, ottimizzazione e crescita del tuo canale. Tutto in un unico posto.",
+    "ai": "IA avanzata"
+  },
+  "cta": {
+    "startFree": {
+      "text": "Inizia Gratis",
+      "aria": "Inizia la prova gratuita di 14 giorni"
+    },
+    "watchDemo": {
+      "text": "Guarda la Demo (3 min)",
+      "aria": "Guarda la dimostrazione di 3 minuti"
+    }
+  },
+  "videoPreview": {
+    "title": "Guarda la piattaforma in azione (2:15)",
+    "playing": "In riproduzione...",
+    "demoBadge": "DEMO",
+    "aria": {
+      "play": "Riproduci video",
+      "pause": "Metti in pausa il video",
+      "close": "Chiudi anteprima"
+    }
+  },
+  "features": {
+    "analytics": {
+      "title": "Analisi in Tempo Reale",
+      "description": "Monitora visualizzazioni, coinvolgimento e crescita"
+    },
+    "seo": {
+      "title": "SEO Intelligente",
+      "description": "Ottimizza titoli, descrizioni e tag con l’IA"
+    },
+    "competitorAnalysis": {
+      "title": "Analisi dei Competitor",
+      "description": "Scopri le strategie di canali simili"
+    },
+    "contentProtection": {
+      "title": "Protezione dei Contenuti",
+      "description": "Rileva copie e proteggi i tuoi contenuti"
+    }
+  }
+}

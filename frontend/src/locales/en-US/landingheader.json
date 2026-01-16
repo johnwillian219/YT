@@ -1,0 +1,59 @@
+{
+  "logo": {
+    "slogan": "Master YouTube like a Ninja"
+  },
+  "navigation": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "help": "Help"
+  },
+  "features": {
+    "categories": {
+      "seo": "SEO & Optimization",
+      "ai": "Artificial Intelligence",
+      "management": "Management & Analytics"
+    },
+    "items": {
+      "keywordResearch": "Keyword Research",
+      "competitorAnalysis": "Competitor Analysis",
+      "titleOptimization": "Title Optimization",
+      "thumbnailGenerator": "AI Thumbnail Generator",
+      "automatedScripts": "Automated Scripts",
+      "trendAnalysis": "Trend Analysis",
+      "realtimeDashboard": "Realtime Dashboard",
+      "contentCalendar": "Content Calendar",
+      "detailedReports": "Detailed Reports"
+    },
+    "descriptions": {
+      "keywordResearch": "Optimize your content",
+      "competitorAnalysis": "Discover winning strategies",
+      "titleOptimization": "Generate irresistible titles",
+      "thumbnailGenerator": "Thumbnails that convert",
+      "automatedScripts": "Automatically created content",
+      "trendAnalysis": "Anticipate YouTube trends",
+      "realtimeDashboard": "Live updated metrics",
+      "contentCalendar": "Smart visual planning",
+      "detailedReports": "Weekly deep insights"
+    }
+  },
+  "dropdown": {
+    "title": "Become a YouTube Ninja",
+    "description": "Try all features for 14 days free",
+    "button": "Try Free"
+  },
+  "mobile": {
+    "googleSignIn": "Sign in with Google",
+    "emailSignUp": "Sign up with Email",
+    "haveAccount": "Already have an account?",
+    "login": "Sign In"
+  },
+  "buttons": {
+    "login": "Login",
+    "startFree": "Start Free"
+  },
+  "aria": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  }
+}

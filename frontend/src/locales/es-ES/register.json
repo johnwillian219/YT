@@ -1,0 +1,28 @@
+{
+  "title": "Crear Cuenta",
+  "subtitle": "Comienza tu viaje en YouTube",
+  "form": {
+    "email": {
+      "label": "Email",
+      "placeholder": "Ingresa tu email"
+    },
+    "password": {
+      "label": "Contraseña",
+      "placeholder": "Ingresa tu contraseña"
+    },
+    "confirmPassword": {
+      "label": "Confirmar Contraseña",
+      "placeholder": "Confirma tu contraseña"
+    },
+    "terms": {
+      "label": "Acepto los {termsLink} y la {privacyLink}",
+      "terms": "Términos",
+      "privacy": "Privacidad"
+    },
+    "submit": "CREAR CUENTA"
+  },
+  "login": {
+    "text": "¿Ya tienes una cuenta?",
+    "link": "Inicia sesión"
+  }
+}

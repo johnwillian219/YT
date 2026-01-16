@@ -1,0 +1,116 @@
+{
+  "header": {
+    "badge": "LASS DEINEN KANAL JETZT WACHSEN",
+    "title": "Steigere dein",
+    "highlight": "Wachstum"
+  },
+  "billing": {
+    "monthly": "Monatlich",
+    "yearly": "Jährlich",
+    "yearlyDiscount": "(-35 %)"
+  },
+  "priceDisplay": {
+    "equivalent": "Entspricht",
+    "perMonth": "/Monat",
+    "perYear": "/Jahr",
+    "volumeDiscount": "Mengenrabatt",
+    "perChannelMonth": "/Kanal/Monat",
+    "perChannel": "/Kanal",
+    "startNow": "Jetzt starten, keine Karte erforderlich",
+    "saveYearly": "35 % sparen bei jährlicher Zahlung",
+    "progressiveDiscount": "Progressiver Rabatt pro Kanal"
+  },
+  "plans": {
+    "free": {
+      "name": "Kostenlos",
+      "tagline": "Unverbindlich testen",
+      "badge": "TEST",
+      "channels": "1 Kanal",
+      "cta": "Jetzt Starten",
+      "marketingTips": [
+        "Ideal zum Testen der Plattform",
+        "Beginne noch heute mit der Optimierung",
+        "Kein Risiko, keine Verpflichtung"
+      ]
+    },
+    "pro": {
+      "name": "Pro",
+      "tagline": "Garantiertes Wachstum",
+      "badge": "AM BELIEBTESTEN",
+      "channels": "1 Kanal",
+      "cta": "14 Tage Kostenlos Testen",
+      "marketingTips": [
+        "14 Tage kostenlos testen",
+        "Garantiertes Wachstum",
+        "Optimiere 100 % deines Kanals"
+      ]
+    },
+    "proPlus": {
+      "name": "Pro Plus",
+      "tagline": "Für mehrere Kanäle",
+      "badge": "AGENTUREN",
+      "channels": "2+ Kanäle",
+      "cta": "Pro Plus Starten",
+      "marketingTips": [
+        "Spare bis zu 30 % mit mehreren Kanälen",
+        "Perfekt für Marketing-Agenturen",
+        "Einheitliches Dashboard für alle Kanäle"
+      ]
+    }
+  },
+  "features": {
+    "free": [
+      "Grundlegende Keyword-Recherche",
+      "Grundlegende Analyse",
+      "Einfache Titeloptimierung",
+      "Eingeschränktes Dashboard",
+      "KI-Thumbnails",
+      "Automatisierte Skripte",
+      "Content-Kalender",
+      "Detaillierte Berichte"
+    ],
+    "pro": [
+      "Unbegrenzte Keyword-Recherche",
+      "Erweiterte Analyse",
+      "Titeloptimierung mit KI",
+      "Beschreibungsoptimierung mit KI",
+      "Tag-Optimierung mit KI",
+      "Unbegrenzte KI-Thumbnails",
+      "Automatisierte Skripte mit KI",
+      "Vollständiges Echtzeit-Dashboard",
+      "Intelligenter Content-Kalender",
+      "Wöchentliche detaillierte Berichte"
+    ],
+    "proPlus": [
+      "Alle Pro-Funktionen",
+      "Multikanal-Dashboard",
+      "Progressiver Rabatt",
+      "Vergleichende Kanalanalyse",
+      "Konsolidierte Berichte",
+      "Priorisierter 24/7-Support",
+      "Beschleunigtes Wachstum",
+      "Personalisierte Schulung"
+    ]
+  },
+  "discountTable": {
+    "title": "Pro Plus Rabatte",
+    "levels": {
+      "level1": {
+        "discount": "10 % RABATT",
+        "channels": "2–5 Kanäle",
+        "price": "€8.99/Kanal"
+      },
+      "level2": {
+        "discount": "20 % RABATT",
+        "channels": "6–10 Kanäle",
+        "price": "€7.99/Kanal"
+      },
+      "level3": {
+        "discount": "30 % RABATT",
+        "channels": "11+ Kanäle",
+        "price": "€6.99/Kanal"
+      }
+    },
+    "note": "Preis pro Kanal • Spare bei mehreren Kanälen"
+  }
+}

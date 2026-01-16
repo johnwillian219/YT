@@ -1,0 +1,52 @@
+{
+  "header": {
+    "badge": "WHAT OUR CREATORS SAY",
+    "title": "Real stories of",
+    "highlight": "growth",
+    "subtitle": "See how creators are transforming their channels"
+  },
+  "carousel": {
+    "prev": "Previous testimonial",
+    "next": "Next testimonial",
+    "goTo": "Go to testimonial {index}",
+    "counter": "{current} / {total}"
+  },
+  "testimonials": [
+    {
+      "name": "Mariana Silva",
+      "role": "Tech YouTuber - 2M subscribers",
+      "content": "I grew from 10k to 2M subscribers in 18 months using NinjaTube. The keyword analysis changed everything!",
+      "rating": 5
+    },
+    {
+      "name": "Carlos Santos",
+      "role": "Gamer - 800K subscribers",
+      "content": "The real-time dashboard helps me make faster decisions. Essential tool!",
+      "rating": 5
+    },
+    {
+      "name": "Ana Rodrigues",
+      "role": "Education - 1.5M subscribers",
+      "content": "AI for thumbnails saves hours of my time. Professional results in seconds.",
+      "rating": 5
+    },
+    {
+      "name": "Pedro Almeida",
+      "role": "Travel - 1.2M subscribers",
+      "content": "The content calendar completely organized me. I never miss a post!",
+      "rating": 5
+    },
+    {
+      "name": "Beatriz Costa",
+      "role": "Cooking - 950K subscribers",
+      "content": "Competitor analysis revealed opportunities I would never have imagined alone.",
+      "rating": 5
+    }
+  ],
+  "cta": {
+    "title": "Ready to transform your channel?",
+    "subtitle": "Start your growth journey",
+    "button": "Start Now",
+    "features": ["No commitment", "Easy cancellation", "24/7 support"]
+  }
+}

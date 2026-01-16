@@ -1,0 +1,57 @@
+{
+  "section": {
+    "badge": "FUNZIONALITÀ ESSENZIALI",
+    "title": "Strumenti Completi",
+    "subtitle": "Per la Tua Crescita"
+  },
+  "features": {
+    "keywordResearch": {
+      "title": "Ricerca di Parole Chiave",
+      "shortTitle": "Keyword",
+      "description": "Trova le migliori parole chiave con analisi di volume e difficoltà"
+    },
+    "competitorAnalysis": {
+      "title": "Analisi dei Competitor",
+      "shortTitle": "Competitor",
+      "description": "Scopri le strategie dei concorrenti e identifica opportunità"
+    },
+    "optimization": {
+      "title": "Ottimizzazione Completa",
+      "shortTitle": "Ottimizzazione",
+      "description": "Migliora SEO, CTR e coinvolgimento con raccomandazioni intelligenti"
+    },
+    "thumbnailAI": {
+      "title": "Thumbnail con IA",
+      "shortTitle": "Thumbnail",
+      "description": "Genera thumbnail persuasive automaticamente con l’IA"
+    },
+    "automatedScripts": {
+      "title": "Script Automatizzati",
+      "shortTitle": "Script IA",
+      "description": "Automatizza la creazione di script con modelli personalizzabili"
+    },
+    "trendAnalysis": {
+      "title": "Analisi delle Tendenze",
+      "shortTitle": "Tendenze",
+      "description": "Monitora le tendenze in tempo reale per contenuti virali"
+    },
+    "dashboard": {
+      "title": "Dashboard in Tempo Reale",
+      "shortTitle": "Dashboard",
+      "description": "Metriche essenziali in un pannello visivo e interattivo"
+    },
+    "contentCalendar": {
+      "title": "Calendario dei Contenuti",
+      "shortTitle": "Calendario",
+      "description": "Pianifica e programma le pubblicazioni con vista timeline"
+    },
+    "detailedReports": {
+      "title": "Report Dettagliati",
+      "shortTitle": "Report",
+      "description": "Report automatici con insight azionabili"
+    }
+  },
+  "cta": {
+    "learnMore": "Scopri di più"
+  }
+}

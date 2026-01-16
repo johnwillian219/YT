@@ -1,0 +1,23 @@
+{
+  "title": "Willkommen zurück",
+  "subtitle": "Greifen Sie auf Ihr Analyse-Dashboard zu",
+  "form": {
+    "email": {
+      "label": "E-Mail-Adresse",
+      "placeholder": "E-Mail-Adresse eingeben"
+    },
+    "password": {
+      "label": "Passwort",
+      "placeholder": "Passwort eingeben",
+      "forgot": "Passwort vergessen?"
+    },
+    "remember": "30 Tage angemeldet bleiben",
+    "submit": "JETZT ANMELDEN",
+    "divider": "Oder fortfahren mit",
+    "google": "Mit Google fortfahren"
+  },
+  "register": {
+    "text": "Noch kein Konto?",
+    "link": "Registrieren"
+  }
+}

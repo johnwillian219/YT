@@ -1,0 +1,28 @@
+{
+  "title": "Konto erstellen",
+  "subtitle": "Starte deine YouTube-Reise",
+  "form": {
+    "email": {
+      "label": "E-Mail-Adresse",
+      "placeholder": "E-Mail-Adresse eingeben"
+    },
+    "password": {
+      "label": "Passwort",
+      "placeholder": "Passwort eingeben"
+    },
+    "confirmPassword": {
+      "label": "Passwort bestätigen",
+      "placeholder": "Passwort bestätigen"
+    },
+    "terms": {
+      "label": "Ich akzeptiere die {termsLink} und die {privacyLink}",
+      "terms": "Nutzungsbedingungen",
+      "privacy": "Datenschutz"
+    },
+    "submit": "KONTO ERSTELLEN"
+  },
+  "login": {
+    "text": "Bereits ein Konto?",
+    "link": "Anmelden"
+  }
+}

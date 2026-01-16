@@ -1,0 +1,59 @@
+{
+  "logo": {
+    "slogan": "Meistern Sie YouTube wie ein Ninja"
+  },
+  "navigation": {
+    "features": "Funktionen",
+    "pricing": "Preise",
+    "blog": "Blog",
+    "help": "Hilfe"
+  },
+  "features": {
+    "categories": {
+      "seo": "SEO & Optimierung",
+      "ai": "Künstliche Intelligenz",
+      "management": "Management & Analytics"
+    },
+    "items": {
+      "keywordResearch": "Keyword-Recherche",
+      "competitorAnalysis": "Wettbewerbsanalyse",
+      "titleOptimization": "Titel-Optimierung",
+      "thumbnailGenerator": "KI-Thumbnail-Generator",
+      "automatedScripts": "Automatisierte Skripte",
+      "trendAnalysis": "Trendanalyse",
+      "realtimeDashboard": "Echtzeit-Dashboard",
+      "contentCalendar": "Content-Kalender",
+      "detailedReports": "Detaillierte Berichte"
+    },
+    "descriptions": {
+      "keywordResearch": "Optimieren Sie Ihre Inhalte",
+      "competitorAnalysis": "Entdecken Sie erfolgreiche Strategien",
+      "titleOptimization": "Generieren Sie unwiderstehliche Titel",
+      "thumbnailGenerator": "Thumbnails, die konvertieren",
+      "automatedScripts": "Automatisch erstellte Inhalte",
+      "trendAnalysis": "Antizipieren Sie YouTube-Trends",
+      "realtimeDashboard": "Live aktualisierte Metriken",
+      "contentCalendar": "Intelligente visuelle Planung",
+      "detailedReports": "Wöchentliche tiefgehende Einblicke"
+    }
+  },
+  "dropdown": {
+    "title": "Werden Sie ein YouTube-Ninja",
+    "description": "Testen Sie alle Funktionen 14 Tage kostenlos",
+    "button": "Kostenlos Testen"
+  },
+  "mobile": {
+    "googleSignIn": "Mit Google anmelden",
+    "emailSignUp": "Mit E-Mail registrieren",
+    "haveAccount": "Haben Sie bereits ein Konto?",
+    "login": "Anmelden"
+  },
+  "buttons": {
+    "login": "Anmeldung",
+    "startFree": "Kostenlos Starten"
+  },
+  "aria": {
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen"
+  }
+}

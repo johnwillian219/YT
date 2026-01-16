@@ -1,0 +1,57 @@
+{
+  "section": {
+    "badge": "RECURSOS ESSENCIAIS",
+    "title": "Ferramentas Completas",
+    "subtitle": "Para Seu Crescimento"
+  },
+  "features": {
+    "keywordResearch": {
+      "title": "Pesquisa de Keywords",
+      "shortTitle": "Keywords",
+      "description": "Encontre as melhores palavras-chave com análise de volume e dificuldade"
+    },
+    "competitorAnalysis": {
+      "title": "Análise de Competidores",
+      "shortTitle": "Competidores",
+      "description": "Descubra estratégias de concorrentes e identifique oportunidades"
+    },
+    "optimization": {
+      "title": "Otimização Completa",
+      "shortTitle": "Otimização",
+      "description": "Melhore SEO, CTR e engajamento com recomendações inteligentes"
+    },
+    "thumbnailAI": {
+      "title": "Thumbnails AI",
+      "shortTitle": "Thumbnails",
+      "description": "Gere thumbnails persuasivas automaticamente com IA"
+    },
+    "automatedScripts": {
+      "title": "Scripts Automatizados",
+      "shortTitle": "Scripts AI",
+      "description": "Automatize criação de roteiros com templates personalizáveis"
+    },
+    "trendAnalysis": {
+      "title": "Análise de Tendências",
+      "shortTitle": "Tendências",
+      "description": "Acompanhe tendências em tempo real para conteúdos virais"
+    },
+    "dashboard": {
+      "title": "Dashboard Tempo Real",
+      "shortTitle": "Dashboard",
+      "description": "Métricas essenciais em um painel visual e interativo"
+    },
+    "contentCalendar": {
+      "title": "Calendário de Conteúdo",
+      "shortTitle": "Calendário",
+      "description": "Planeje e agende publicações com visualização timeline"
+    },
+    "detailedReports": {
+      "title": "Relatórios Detalhados",
+      "shortTitle": "Relatórios",
+      "description": "Relatórios automáticos com insights acionáveis"
+    }
+  },
+  "cta": {
+    "learnMore": "Saiba mais"
+  }
+}

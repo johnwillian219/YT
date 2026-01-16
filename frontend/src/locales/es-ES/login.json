@@ -1,0 +1,23 @@
+{
+  "title": "Bienvenido de nuevo",
+  "subtitle": "Accede a tu panel de análisis",
+  "form": {
+    "email": {
+      "label": "Email",
+      "placeholder": "Ingresa tu email"
+    },
+    "password": {
+      "label": "Contraseña",
+      "placeholder": "Ingresa tu contraseña",
+      "forgot": "¿Olvidaste tu contraseña?"
+    },
+    "remember": "Recordarme por 30 días",
+    "submit": "INICIAR SESIÓN AHORA",
+    "divider": "O continuar con",
+    "google": "Continuar con Google"
+  },
+  "register": {
+    "text": "¿No tienes una cuenta?",
+    "link": "Regístrate"
+  }
+}

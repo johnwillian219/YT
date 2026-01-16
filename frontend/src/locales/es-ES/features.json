@@ -1,0 +1,57 @@
+{
+  "section": {
+    "badge": "CARACTERÍSTICAS ESENCIALES",
+    "title": "Herramientas Completas",
+    "subtitle": "Para Tu Crecimiento"
+  },
+  "features": {
+    "keywordResearch": {
+      "title": "Investigación de Keywords",
+      "shortTitle": "Keywords",
+      "description": "Encuentra las mejores palabras clave con análisis de volumen y dificultad"
+    },
+    "competitorAnalysis": {
+      "title": "Análisis de Competidores",
+      "shortTitle": "Competidores",
+      "description": "Descubre estrategias de competidores e identifica oportunidades"
+    },
+    "optimization": {
+      "title": "Optimización Completa",
+      "shortTitle": "Optimización",
+      "description": "Mejora SEO, CTR y engagement con recomendaciones inteligentes"
+    },
+    "thumbnailAI": {
+      "title": "Thumbnails IA",
+      "shortTitle": "Thumbnails",
+      "description": "Genera miniaturas persuasivas automáticamente con IA"
+    },
+    "automatedScripts": {
+      "title": "Scripts Automatizados",
+      "shortTitle": "Scripts IA",
+      "description": "Automatiza la creación de guiones con plantillas personalizables"
+    },
+    "trendAnalysis": {
+      "title": "Análisis de Tendencias",
+      "shortTitle": "Tendencias",
+      "description": "Sigue tendencias en tiempo real para contenido viral"
+    },
+    "dashboard": {
+      "title": "Dashboard en Tiempo Real",
+      "shortTitle": "Dashboard",
+      "description": "Métricas esenciales en un panel visual e interactivo"
+    },
+    "contentCalendar": {
+      "title": "Calendario de Contenido",
+      "shortTitle": "Calendario",
+      "description": "Planea y programa publicaciones con vista de línea de tiempo"
+    },
+    "detailedReports": {
+      "title": "Informes Detallados",
+      "shortTitle": "Informes",
+      "description": "Informes automáticos con insights accionables"
+    }
+  },
+  "cta": {
+    "learnMore": "Saber más"
+  }
+}

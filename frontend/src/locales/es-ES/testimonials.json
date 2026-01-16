@@ -1,0 +1,52 @@
+{
+  "header": {
+    "badge": "QUÉ DICEN NUESTROS CREADORES",
+    "title": "Historias reales de",
+    "highlight": "crecimiento",
+    "subtitle": "Mira cómo los creadores están transformando sus canales"
+  },
+  "carousel": {
+    "prev": "Testimonio anterior",
+    "next": "Próximo testimonio",
+    "goTo": "Ir al testimonio {index}",
+    "counter": "{current} / {total}"
+  },
+  "testimonials": [
+    {
+      "name": "Mariana Silva",
+      "role": "Tech YouTuber - 2M suscriptores",
+      "content": "Creí de 10k a 2M de suscriptores en 18 meses usando NinjaTube. ¡El análisis de keywords lo cambió todo!",
+      "rating": 5
+    },
+    {
+      "name": "Carlos Santos",
+      "role": "Gamer - 800K suscriptores",
+      "content": "El dashboard en tiempo real me ayuda a tomar decisiones más rápidas. ¡Herramienta esencial!",
+      "rating": 5
+    },
+    {
+      "name": "Ana Rodrigues",
+      "role": "Educación - 1.5M suscriptores",
+      "content": "La IA para miniaturas ahorra horas de mi tiempo. Resultados profesionales en segundos.",
+      "rating": 5
+    },
+    {
+      "name": "Pedro Almeida",
+      "role": "Viajes - 1.2M suscriptores",
+      "content": "El calendario de contenido me organizó completamente. ¡Nunca pierdo una publicación!",
+      "rating": 5
+    },
+    {
+      "name": "Beatriz Costa",
+      "role": "Cocina - 950K suscriptores",
+      "content": "El análisis de competidores reveló oportunidades que nunca habría imaginado sola.",
+      "rating": 5
+    }
+  ],
+  "cta": {
+    "title": "¿Listo para transformar tu canal?",
+    "subtitle": "Comienza tu viaje de crecimiento",
+    "button": "Comenzar Ahora",
+    "features": ["Sin compromiso", "Cancelación fácil", "Soporte 24/7"]
+  }
+}

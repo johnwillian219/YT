@@ -1,0 +1,62 @@
+{
+  "brand": {
+    "name": "NinjaTube",
+    "tagline": "Outils professionnels pour les créateurs",
+    "description": "Des outils intelligents qui aident les créateurs de contenu à développer leurs chaînes YouTube grâce à des stratégies basées sur les données."
+  },
+  "newsletter": {
+    "title": "Recevez des conseils exclusifs",
+    "placeholder": "Entrez votre adresse e-mail",
+    "button": "S’abonner",
+    "note": "Conseils hebdomadaires • Sans spam"
+  },
+  "sections": {
+    "product": {
+      "title": "Produit",
+      "links": [
+        { "name": "Fonctionnalités", "href": "#" },
+        { "name": "Tarifs", "href": "#" },
+        { "name": "Démo", "href": "#" },
+        { "name": "Mises à jour", "href": "#" }
+      ]
+    },
+    "company": {
+      "title": "Entreprise",
+      "links": [
+        { "name": "À propos", "href": "#" },
+        { "name": "Blog", "href": "#" },
+        { "name": "Carrières", "href": "#" },
+        { "name": "Partenaires", "href": "#" }
+      ]
+    },
+    "support": {
+      "title": "Support",
+      "links": [
+        { "name": "Aide", "href": "#" },
+        { "name": "Contact", "href": "#" },
+        { "name": "FAQ", "href": "#" },
+        { "name": "Communauté", "href": "#" }
+      ]
+    },
+    "legal": {
+      "title": "Légal",
+      "links": [
+        { "name": "Confidentialité", "href": "#" },
+        { "name": "Conditions", "href": "#" },
+        { "name": "Cookies", "href": "#" },
+        { "name": "Sécurité", "href": "#" }
+      ]
+    }
+  },
+  "social": {
+    "youtube": "YouTube",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp"
+  },
+  "copyright": {
+    "text": "© {year} NinjaTube • Tous droits réservés",
+    "notAffiliated": "Non affilié à YouTube®",
+    "secure": "Site sécurisé • Protégé par SSL"
+  }
+}

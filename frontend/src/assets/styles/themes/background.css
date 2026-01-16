@@ -1,0 +1,380 @@
+/* ============================================
+   BACKGROUND ANIMATIONS & STYLES
+   Estilos específicos para o background animado
+============================================ */
+
+/* ===================
+   ANIMAÇÕES PRINCIPAIS
+   =================== */
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    opacity: var(--opacity, 0.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(15px, -15px);
+  }
+  66% {
+    transform: translate(-10px, 10px);
+  }
+}
+
+@keyframes float-icon {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-25px) translateX(12px) rotate(8deg);
+  }
+  50% {
+    transform: translateY(15px) translateX(-12px) rotate(-6deg);
+  }
+  75% {
+    transform: translateY(-10px) translateX(-8px) rotate(4deg);
+  }
+}
+
+@keyframes float-icon-mobile {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-15px) translateX(8px) rotate(4deg);
+  }
+  66% {
+    transform: translateY(8px) translateX(-8px) rotate(-4deg);
+  }
+}
+
+@keyframes gradient-flow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes wave-morph {
+  0%,
+  100% {
+    d: path(
+      "M-100,0 C150,150 350,0 600,150 C850,300 1050,0 1300,150 L1300,600 L-100,600 Z"
+    );
+  }
+  50% {
+    d: path(
+      "M-100,0 C150,50 350,200 600,50 C850,-100 1050,200 1300,50 L1300,600 L-100,600 Z"
+    );
+  }
+}
+
+@keyframes shimmer-pulse {
+  0%,
+  100% {
+    opacity: 0.03;
+  }
+  50% {
+    opacity: 0.08;
+  }
+}
+
+@keyframes money-sparkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+    opacity: 0.2;
+  }
+}
+
+/* ===================
+   CLASSES DE ANIMAÇÃO
+   =================== */
+
+.animate-background-float {
+  animation: float 25s ease-in-out infinite;
+}
+
+.animate-background-float-slow {
+  animation: float 35s ease-in-out infinite;
+}
+
+.animate-background-float-icon {
+  animation: float-icon 20s ease-in-out infinite;
+}
+
+.animate-background-float-icon-mobile {
+  animation: float-icon-mobile 15s ease-in-out infinite;
+}
+
+.animate-background-pulse {
+  animation: pulse var(--duration, 8s) ease-out infinite;
+}
+
+.animate-background-gradient {
+  background-size: 200% 200%;
+  animation: gradient-flow 15s ease infinite;
+}
+
+.animate-background-shimmer {
+  animation: shimmer-pulse 3s ease-in-out infinite;
+}
+
+.animate-money-sparkle {
+  animation: money-sparkle 2s ease-in-out infinite;
+}
+
+/* ===================
+   UTILITÁRIOS DO BACKGROUND
+   =================== */
+
+.bg-gradient-radial-center {
+  background-image: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+.bg-gradient-vignette {
+  background-image: radial-gradient(
+    ellipse at center,
+    transparent 30%,
+    rgba(0, 0, 0, 0.4) 70%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+.bg-gradient-top-fade {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4) 0%,
+    transparent 20%,
+    transparent 80%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+}
+
+.bg-gradient-sides-fade {
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.3) 0%,
+    transparent 15%,
+    transparent 85%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+/* ===================
+   ESTILOS PARA ELEMENTOS DO BACKGROUND
+   =================== */
+
+.bg-layer {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.bg-particle {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.bg-icon-glow {
+  filter: drop-shadow(0 0 2px currentColor);
+}
+
+.bg-icon-glow-strong {
+  filter: drop-shadow(0 0 4px currentColor);
+}
+
+.bg-pulse-ring {
+  will-change: transform, opacity;
+  mix-blend-mode: screen;
+}
+
+/* ===================
+   VARIAÇÕES POR TEMA
+   =================== */
+
+[data-theme="cyberpunk"] .bg-theme-accent {
+  filter: drop-shadow(0 0 3px rgba(0, 255, 255, 0.3));
+}
+
+[data-theme="dark"] .bg-theme-accent {
+  filter: drop-shadow(0 0 3px rgba(139, 92, 246, 0.3));
+}
+
+[data-theme="light"] .bg-theme-accent {
+  filter: drop-shadow(0 0 3px rgba(99, 102, 241, 0.3));
+}
+
+/* ===================
+   RESPONSIVIDADE
+   =================== */
+
+@media (max-width: 768px) {
+  .animate-background-float {
+    animation-duration: 35s;
+  }
+
+  .animate-background-float-icon {
+    animation: float-icon-mobile 15s ease-in-out infinite;
+  }
+
+  .bg-mobile-reduced {
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .bg-mobile-hidden {
+    display: none;
+  }
+
+  .animate-background-float {
+    animation-duration: 40s;
+  }
+}
+
+/* ===================
+   REDUÇÃO DE MOVIMENTO
+   =================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-background-float,
+  .animate-background-float-slow,
+  .animate-background-float-icon,
+  .animate-background-float-icon-mobile,
+  .animate-background-pulse,
+  .animate-background-gradient,
+  .animate-background-shimmer,
+  .animate-money-sparkle {
+    animation: none !important;
+  }
+
+  .bg-layer {
+    opacity: 0.5;
+  }
+}
+
+/* ===================
+   EFEITOS ESPECIAIS
+   =================== */
+
+.bg-money-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 215, 0, 0.1),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: gradient-flow 4s ease infinite;
+}
+
+.bg-youtube-pulse {
+  position: relative;
+}
+
+.bg-youtube-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
+  animation: shimmer-pulse 2s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* ===================
+   OVERLAYS DE CONTRASTE
+   =================== */
+
+.bg-overlay-dark {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+}
+
+.bg-overlay-cyberpunk {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(255, 0, 0, 0.1) 25%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 255, 255, 0.1) 75%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+.bg-overlay-light {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+}
+
+/* ===================
+   GRADIENTS TEMÁTICOS
+   =================== */
+
+.bg-gradient-cyberpunk {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 0, 0.05) 0%,
+    rgba(0, 255, 255, 0.05) 25%,
+    rgba(255, 0, 255, 0.05) 50%,
+    rgba(255, 215, 0, 0.05) 75%,
+    rgba(255, 0, 0, 0.05) 100%
+  );
+}
+
+.bg-gradient-money {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 215, 0, 0.05) 0%,
+    rgba(255, 215, 0, 0.02) 40%,
+    transparent 70%
+  );
+}
+
+.bg-gradient-youtube {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 0, 0, 0.05) 0%,
+    rgba(255, 0, 0, 0.02) 40%,
+    transparent 70%
+  );
+}

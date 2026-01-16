@@ -1,0 +1,23 @@
+{
+  "title": "Bem-vindo de volta",
+  "subtitle": "Acesse seu painel de análises",
+  "form": {
+    "email": {
+      "label": "Email",
+      "placeholder": "Insira seu email"
+    },
+    "password": {
+      "label": "Senha",
+      "placeholder": "Insira sua senha",
+      "forgot": "Esqueceu a senha?"
+    },
+    "remember": "Lembrar-me por 30 dias",
+    "submit": "ENTRAR AGORA",
+    "divider": "Ou continue com",
+    "google": "Continuar com Google"
+  },
+  "register": {
+    "text": "Não tem uma conta?",
+    "link": "Cadastre-se"
+  }
+}

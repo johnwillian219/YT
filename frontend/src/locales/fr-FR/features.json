@@ -1,0 +1,57 @@
+{
+  "section": {
+    "badge": "FONCTIONNALITÉS ESSENTIELLES",
+    "title": "Outils Complets",
+    "subtitle": "Pour Votre Croissance"
+  },
+  "features": {
+    "keywordResearch": {
+      "title": "Recherche de Mots-Clés",
+      "shortTitle": "Mots-clés",
+      "description": "Trouvez les meilleurs mots-clés avec analyse du volume et de la difficulté"
+    },
+    "competitorAnalysis": {
+      "title": "Analyse des Concurrents",
+      "shortTitle": "Concurrents",
+      "description": "Découvrez les stratégies concurrentes et identifiez les opportunités"
+    },
+    "optimization": {
+      "title": "Optimisation Complète",
+      "shortTitle": "Optimisation",
+      "description": "Améliorez le SEO, le CTR et l’engagement avec des recommandations intelligentes"
+    },
+    "thumbnailAI": {
+      "title": "Miniatures IA",
+      "shortTitle": "Miniatures",
+      "description": "Générez automatiquement des miniatures convaincantes avec l’IA"
+    },
+    "automatedScripts": {
+      "title": "Scripts Automatisés",
+      "shortTitle": "Scripts IA",
+      "description": "Automatisez la création de scripts avec des modèles personnalisables"
+    },
+    "trendAnalysis": {
+      "title": "Analyse des Tendances",
+      "shortTitle": "Tendances",
+      "description": "Suivez les tendances en temps réel pour du contenu viral"
+    },
+    "dashboard": {
+      "title": "Tableau de Bord en Temps Réel",
+      "shortTitle": "Dashboard",
+      "description": "Métriques essentielles dans un panneau visuel et interactif"
+    },
+    "contentCalendar": {
+      "title": "Calendrier de Contenu",
+      "shortTitle": "Calendrier",
+      "description": "Planifiez et programmez vos publications avec une vue chronologique"
+    },
+    "detailedReports": {
+      "title": "Rapports Détaillés",
+      "shortTitle": "Rapports",
+      "description": "Rapports automatiques avec des insights exploitables"
+    }
+  },
+  "cta": {
+    "learnMore": "En savoir plus"
+  }
+}

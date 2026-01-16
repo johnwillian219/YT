@@ -1,0 +1,52 @@
+{
+  "header": {
+    "badge": "WAS UNSERE CREATORS SAGEN",
+    "title": "Echte Erfolgsgeschichten für",
+    "highlight": "Wachstum",
+    "subtitle": "So transformieren Creator ihre YouTube-Kanäle"
+  },
+  "carousel": {
+    "prev": "Vorheriges Testimonial",
+    "next": "Nächstes Testimonial",
+    "goTo": "Zum Testimonial {index}",
+    "counter": "{current} / {total}"
+  },
+  "testimonials": [
+    {
+      "name": "Mariana Silva",
+      "role": "Tech-YouTuberin · 2 Mio. Abonnenten",
+      "content": "Von 10k auf 2 Mio. Abonnenten in 18 Monaten mit NinjaTube. Die Keyword-Analyse hat alles verändert.",
+      "rating": 5
+    },
+    {
+      "name": "Carlos Santos",
+      "role": "Gaming · 800K Abonnenten",
+      "content": "Das Echtzeit-Dashboard hilft mir, schneller Entscheidungen zu treffen. Ein unverzichtbares Tool.",
+      "rating": 5
+    },
+    {
+      "name": "Ana Rodrigues",
+      "role": "Bildung · 1,5 Mio. Abonnenten",
+      "content": "Die KI für Thumbnails spart mir Stunden Arbeit. Professionelle Ergebnisse in Sekunden.",
+      "rating": 5
+    },
+    {
+      "name": "Pedro Almeida",
+      "role": "Reisen · 1,2 Mio. Abonnenten",
+      "content": "Der Content-Kalender hat meine Planung komplett verändert. Keine Veröffentlichung mehr verpasst.",
+      "rating": 5
+    },
+    {
+      "name": "Beatriz Costa",
+      "role": "Kochen · 950K Abonnenten",
+      "content": "Die Wettbewerbsanalyse hat Chancen aufgezeigt, die ich alleine nie erkannt hätte.",
+      "rating": 5
+    }
+  ],
+  "cta": {
+    "title": "Bereit, deinen Kanal zu transformieren?",
+    "subtitle": "Starte jetzt dein Wachstum",
+    "button": "Jetzt starten",
+    "features": ["Keine Verpflichtung", "Einfache Kündigung", "24/7 Support"]
+  }
+}

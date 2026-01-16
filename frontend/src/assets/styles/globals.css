@@ -1,28 +1,186 @@
+/* ============================================
+   GLOBAL STYLES
+   Estilos globais do aplicativo
+============================================ */
+
+/* 1. Importações de temas */
+@import "./themes/base.css";
+@import "./themes/dark.css";
+@import "./themes/light.css";
+@import "./themes/cyberpunk.css";
+
+/* 2. Importações de estilos específicos */
+@import "./themes/background.css";
+
+/* 3. Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* 4. Base styles */
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-  }
-
   body {
-    @apply bg-gray-50 text-gray-900;
-    font-feature-settings:
-      "rlig" 1,
-      "calt" 1;
+    @apply antialiased;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
 }
 
+/* 5. Component styles */
 @layer components {
-  .btn-primary {
-    @apply px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors;
+  .glass-card {
+    @apply backdrop-blur-md bg-white/5 border border-white/10;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400;
+  }
+}
+
+/* 6. Utility classes globais */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Scrollbar styles */
+  .scrollbar-cyberpunk {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 255, 255, 0.3) rgba(0, 0, 0, 0.1);
+  }
+
+  .scrollbar-cyberpunk::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-cyberpunk::-webkit-scrollbar-track {
+    @apply bg-gray-900;
+  }
+
+  .scrollbar-cyberpunk::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 255, 255, 0.3);
+    border-radius: 9999px;
+  }
+
+  .scrollbar-cyberpunk::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 255, 255, 0.5);
+  }
+}
+
+/* 7. Estilos globais fora das camadas do Tailwind */
+
+/* Scrollbar global */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 255, 0.3) rgba(17, 24, 39, 0.1);
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #111827;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 255, 0.3);
+  border-radius: 9999px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 255, 0.5);
+}
+
+/* Selection styles */
+::selection {
+  background-color: rgba(0, 255, 255, 0.3);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: rgba(0, 255, 255, 0.3);
+  color: white;
+}
+
+.selection-cyberpunk ::selection {
+  background-color: rgba(0, 255, 255, 0.3);
+  color: white;
+}
+
+.selection-cyberpunk ::-moz-selection {
+  background-color: rgba(0, 255, 255, 0.3);
+  color: white;
+}
+
+/* Focus management */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(0, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions */
+* {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

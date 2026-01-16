@@ -1,0 +1,23 @@
+{
+  "title": "Bon retour",
+  "subtitle": "Accédez à votre tableau de bord analytique",
+  "form": {
+    "email": {
+      "label": "Adresse e-mail",
+      "placeholder": "Entrez votre adresse e-mail"
+    },
+    "password": {
+      "label": "Mot de passe",
+      "placeholder": "Entrez votre mot de passe",
+      "forgot": "Mot de passe oublié ?"
+    },
+    "remember": "Se souvenir de moi pendant 30 jours",
+    "submit": "SE CONNECTER MAINTENANT",
+    "divider": "Ou continuer avec",
+    "google": "Continuer avec Google"
+  },
+  "register": {
+    "text": "Vous n’avez pas de compte ?",
+    "link": "S’inscrire"
+  }
+}

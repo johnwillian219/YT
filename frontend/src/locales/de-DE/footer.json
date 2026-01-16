@@ -1,0 +1,62 @@
+{
+  "brand": {
+    "name": "NinjaTube",
+    "tagline": "Professionelle Tools für Creator",
+    "description": "Intelligente Tools, die Content Creator dabei unterstützen, ihre YouTube-Kanäle mit datenbasierten Strategien zu skalieren."
+  },
+  "newsletter": {
+    "title": "Exklusive Tipps erhalten",
+    "placeholder": "E-Mail-Adresse eingeben",
+    "button": "Abonnieren",
+    "note": "Wöchentliche Tipps • Kein Spam"
+  },
+  "sections": {
+    "product": {
+      "title": "Produkt",
+      "links": [
+        { "name": "Funktionen", "href": "#" },
+        { "name": "Preise", "href": "#" },
+        { "name": "Demo", "href": "#" },
+        { "name": "Updates", "href": "#" }
+      ]
+    },
+    "company": {
+      "title": "Unternehmen",
+      "links": [
+        { "name": "Über uns", "href": "#" },
+        { "name": "Blog", "href": "#" },
+        { "name": "Karriere", "href": "#" },
+        { "name": "Partner", "href": "#" }
+      ]
+    },
+    "support": {
+      "title": "Support",
+      "links": [
+        { "name": "Hilfe", "href": "#" },
+        { "name": "Kontakt", "href": "#" },
+        { "name": "FAQ", "href": "#" },
+        { "name": "Community", "href": "#" }
+      ]
+    },
+    "legal": {
+      "title": "Rechtliches",
+      "links": [
+        { "name": "Datenschutz", "href": "#" },
+        { "name": "Nutzungsbedingungen", "href": "#" },
+        { "name": "Cookies", "href": "#" },
+        { "name": "Sicherheit", "href": "#" }
+      ]
+    }
+  },
+  "social": {
+    "youtube": "YouTube",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp"
+  },
+  "copyright": {
+    "text": "© {year} NinjaTube • Alle Rechte vorbehalten",
+    "notAffiliated": "Nicht mit YouTube® verbunden",
+    "secure": "Sichere Website • SSL-geschützt"
+  }
+}

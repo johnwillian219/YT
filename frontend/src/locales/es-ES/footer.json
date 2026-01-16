@@ -1,0 +1,62 @@
+{
+  "brand": {
+    "name": "NinjaTube",
+    "tagline": "Herramientas profesionales para creadores",
+    "description": "Herramientas inteligentes que ayudan a creadores de contenido a hacer crecer sus canales de YouTube con estrategias basadas en datos."
+  },
+  "newsletter": {
+    "title": "Recibe consejos exclusivos",
+    "placeholder": "Ingresa tu email",
+    "button": "Suscribirse",
+    "note": "Consejos semanales • Sin spam"
+  },
+  "sections": {
+    "product": {
+      "title": "Producto",
+      "links": [
+        { "name": "Características", "href": "#" },
+        { "name": "Planes", "href": "#" },
+        { "name": "Demostración", "href": "#" },
+        { "name": "Actualizaciones", "href": "#" }
+      ]
+    },
+    "company": {
+      "title": "Empresa",
+      "links": [
+        { "name": "Sobre Nosotros", "href": "#" },
+        { "name": "Blog", "href": "#" },
+        { "name": "Carreras", "href": "#" },
+        { "name": "Socios", "href": "#" }
+      ]
+    },
+    "support": {
+      "title": "Soporte",
+      "links": [
+        { "name": "Ayuda", "href": "#" },
+        { "name": "Contacto", "href": "#" },
+        { "name": "FAQ", "href": "#" },
+        { "name": "Comunidad", "href": "#" }
+      ]
+    },
+    "legal": {
+      "title": "Legal",
+      "links": [
+        { "name": "Privacidad", "href": "#" },
+        { "name": "Términos", "href": "#" },
+        { "name": "Cookies", "href": "#" },
+        { "name": "Seguridad", "href": "#" }
+      ]
+    }
+  },
+  "social": {
+    "youtube": "YouTube",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp"
+  },
+  "copyright": {
+    "text": "© {year} NinjaTube • Todos los derechos reservados",
+    "notAffiliated": "No afiliado a YouTube®",
+    "secure": "Sitio seguro • Protegido con SSL"
+  }
+}

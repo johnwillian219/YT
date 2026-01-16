@@ -1,0 +1,62 @@
+{
+  "brand": {
+    "name": "NinjaTube",
+    "tagline": "Strumenti professionali per creator",
+    "description": "Strumenti intelligenti che aiutano i creator di contenuti a far crescere i loro canali YouTube con strategie basate sui dati."
+  },
+  "newsletter": {
+    "title": "Ricevi consigli esclusivi",
+    "placeholder": "Inserisci la tua email",
+    "button": "Iscriviti",
+    "note": "Consigli settimanali • Zero spam"
+  },
+  "sections": {
+    "product": {
+      "title": "Prodotto",
+      "links": [
+        { "name": "Funzionalità", "href": "#" },
+        { "name": "Piani", "href": "#" },
+        { "name": "Demo", "href": "#" },
+        { "name": "Aggiornamenti", "href": "#" }
+      ]
+    },
+    "company": {
+      "title": "Azienda",
+      "links": [
+        { "name": "Chi siamo", "href": "#" },
+        { "name": "Blog", "href": "#" },
+        { "name": "Lavora con noi", "href": "#" },
+        { "name": "Partner", "href": "#" }
+      ]
+    },
+    "support": {
+      "title": "Supporto",
+      "links": [
+        { "name": "Assistenza", "href": "#" },
+        { "name": "Contatto", "href": "#" },
+        { "name": "FAQ", "href": "#" },
+        { "name": "Community", "href": "#" }
+      ]
+    },
+    "legal": {
+      "title": "Legale",
+      "links": [
+        { "name": "Privacy", "href": "#" },
+        { "name": "Termini", "href": "#" },
+        { "name": "Cookie", "href": "#" },
+        { "name": "Sicurezza", "href": "#" }
+      ]
+    }
+  },
+  "social": {
+    "youtube": "YouTube",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp"
+  },
+  "copyright": {
+    "text": "© {year} NinjaTube • Tutti i diritti riservati",
+    "notAffiliated": "Non affiliato a YouTube®",
+    "secure": "Sito sicuro • Protetto con SSL"
+  }
+}

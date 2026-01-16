@@ -1,0 +1,57 @@
+{
+  "section": {
+    "badge": "ESSENTIAL FEATURES",
+    "title": "Complete Tools",
+    "subtitle": "For Your Growth"
+  },
+  "features": {
+    "keywordResearch": {
+      "title": "Keyword Research",
+      "shortTitle": "Keywords",
+      "description": "Find the best keywords with volume and difficulty analysis"
+    },
+    "competitorAnalysis": {
+      "title": "Competitor Analysis",
+      "shortTitle": "Competitors",
+      "description": "Discover competitor strategies and identify opportunities"
+    },
+    "optimization": {
+      "title": "Complete Optimization",
+      "shortTitle": "Optimization",
+      "description": "Improve SEO, CTR and engagement with intelligent recommendations"
+    },
+    "thumbnailAI": {
+      "title": "AI Thumbnails",
+      "shortTitle": "Thumbnails",
+      "description": "Generate persuasive thumbnails automatically with AI"
+    },
+    "automatedScripts": {
+      "title": "Automated Scripts",
+      "shortTitle": "AI Scripts",
+      "description": "Automate script creation with customizable templates"
+    },
+    "trendAnalysis": {
+      "title": "Trend Analysis",
+      "shortTitle": "Trends",
+      "description": "Track trends in real time for viral content"
+    },
+    "dashboard": {
+      "title": "Real-time Dashboard",
+      "shortTitle": "Dashboard",
+      "description": "Essential metrics in a visual and interactive panel"
+    },
+    "contentCalendar": {
+      "title": "Content Calendar",
+      "shortTitle": "Calendar",
+      "description": "Plan and schedule publications with timeline view"
+    },
+    "detailedReports": {
+      "title": "Detailed Reports",
+      "shortTitle": "Reports",
+      "description": "Automatic reports with actionable insights"
+    }
+  },
+  "cta": {
+    "learnMore": "Learn more"
+  }
+}

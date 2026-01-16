@@ -1,0 +1,116 @@
+{
+  "header": {
+    "badge": "DÉVELOPPEZ VOTRE CHAÎNE DÈS MAINTENANT",
+    "title": "Boostez votre",
+    "highlight": "Croissance"
+  },
+  "billing": {
+    "monthly": "Mensuel",
+    "yearly": "Annuel",
+    "yearlyDiscount": "(-35 %)"
+  },
+  "priceDisplay": {
+    "equivalent": "Équivalent à",
+    "perMonth": "/mois",
+    "perYear": "/an",
+    "volumeDiscount": "Remise sur volume",
+    "perChannelMonth": "/chaîne/mois",
+    "perChannel": "/chaîne",
+    "startNow": "Commencez maintenant, sans carte",
+    "saveYearly": "Économisez 35 % avec le paiement annuel",
+    "progressiveDiscount": "Remise progressive par chaîne"
+  },
+  "plans": {
+    "free": {
+      "name": "Gratuit",
+      "tagline": "Testez sans engagement",
+      "badge": "TEST",
+      "channels": "1 chaîne",
+      "cta": "Commencer",
+      "marketingTips": [
+        "Idéal pour tester la plateforme",
+        "Commencez à optimiser vos vidéos aujourd’hui",
+        "Sans risque, sans engagement"
+      ]
+    },
+    "pro": {
+      "name": "Pro",
+      "tagline": "Croissance garantie",
+      "badge": "LE PLUS CHOISI",
+      "channels": "1 chaîne",
+      "cta": "Essai Gratuit 14 Jours",
+      "marketingTips": [
+        "14 jours gratuits pour tester",
+        "Croissance garantie",
+        "Optimisez 100 % de votre chaîne"
+      ]
+    },
+    "proPlus": {
+      "name": "Pro Plus",
+      "tagline": "Pour plusieurs chaînes",
+      "badge": "AGENCES",
+      "channels": "2+ chaînes",
+      "cta": "Démarrer Pro Plus",
+      "marketingTips": [
+        "Économisez jusqu’à 30 % avec plusieurs chaînes",
+        "Parfait pour les agences marketing",
+        "Dashboard unifié pour toutes les chaînes"
+      ]
+    }
+  },
+  "features": {
+    "free": [
+      "Recherche de mots-clés basique",
+      "Analyse basique",
+      "Optimisation basique des titres",
+      "Dashboard limité",
+      "Miniatures IA",
+      "Scripts automatisés",
+      "Calendrier de contenu",
+      "Rapports détaillés"
+    ],
+    "pro": [
+      "Recherche de mots-clés illimitée",
+      "Analyse avancée",
+      "Optimisation des titres avec IA",
+      "Optimisation des descriptions avec IA",
+      "Optimisation des tags avec IA",
+      "Miniatures IA illimitées",
+      "Scripts automatisés avec IA",
+      "Dashboard complet en temps réel",
+      "Calendrier de contenu intelligent",
+      "Rapports détaillés hebdomadaires"
+    ],
+    "proPlus": [
+      "Toutes les fonctionnalités Pro",
+      "Dashboard multichaîne unifié",
+      "Remise progressive",
+      "Analyse comparative entre chaînes",
+      "Rapports consolidés",
+      "Support prioritaire 24/7",
+      "Croissance accélérée",
+      "Formation personnalisée"
+    ]
+  },
+  "discountTable": {
+    "title": "Réductions Pro Plus",
+    "levels": {
+      "level1": {
+        "discount": "-10 %",
+        "channels": "2–5 chaînes",
+        "price": "€8.99/chaîne"
+      },
+      "level2": {
+        "discount": "-20 %",
+        "channels": "6–10 chaînes",
+        "price": "€7.99/chaîne"
+      },
+      "level3": {
+        "discount": "-30 %",
+        "channels": "11+ chaînes",
+        "price": "€6.99/chaîne"
+      }
+    },
+    "note": "Prix par chaîne • Économisez en gérant plusieurs chaînes"
+  }
+}

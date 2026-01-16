@@ -1,0 +1,59 @@
+{
+  "logo": {
+    "slogan": "Domine o YouTube como Ninja"
+  },
+  "navigation": {
+    "features": "Recursos",
+    "pricing": "Preços",
+    "blog": "Blog",
+    "help": "Ajuda"
+  },
+  "features": {
+    "categories": {
+      "seo": "SEO & Otimização",
+      "ai": "Inteligência Artificial",
+      "management": "Gestão & Analytics"
+    },
+    "items": {
+      "keywordResearch": "Pesquisa de Keywords",
+      "competitorAnalysis": "Análise de Competidores",
+      "titleOptimization": "Otimização de Títulos",
+      "thumbnailGenerator": "Gerador de Thumbnails AI",
+      "automatedScripts": "Scripts Automatizados",
+      "trendAnalysis": "Análise de Tendências",
+      "realtimeDashboard": "Dashboard em Tempo Real",
+      "contentCalendar": "Calendário de Conteúdo",
+      "detailedReports": "Relatórios Detalhados"
+    },
+    "descriptions": {
+      "keywordResearch": "Otimize seu conteúdo",
+      "competitorAnalysis": "Descubra estratégias vencedoras",
+      "titleOptimization": "Gere títulos irresistíveis",
+      "thumbnailGenerator": "Thumbnails que convertem",
+      "automatedScripts": "Conteúdo criado automaticamente",
+      "trendAnalysis": "Antecipe tendências do YouTube",
+      "realtimeDashboard": "Métricas atualizadas ao vivo",
+      "contentCalendar": "Planejamento visual inteligente",
+      "detailedReports": "Insights profundos semanais"
+    }
+  },
+  "dropdown": {
+    "title": "Torne-se um Ninja do YouTube",
+    "description": "Teste todas as features por 14 dias grátis",
+    "button": "Teste Grátis"
+  },
+  "mobile": {
+    "googleSignIn": "Entrar com Google",
+    "emailSignUp": "Cadastrar com Email",
+    "haveAccount": "Já tem uma conta?",
+    "login": "Fazer Login"
+  },
+  "buttons": {
+    "login": "Login",
+    "startFree": "Começar Grátis"
+  },
+  "aria": {
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu"
+  }
+}

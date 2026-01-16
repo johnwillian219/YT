@@ -1,0 +1,23 @@
+{
+  "title": "Welcome back",
+  "subtitle": "Access your analytics dashboard",
+  "form": {
+    "email": {
+      "label": "Email",
+      "placeholder": "Enter your email"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "Enter your password",
+      "forgot": "Forgot password?"
+    },
+    "remember": "Remember me for 30 days",
+    "submit": "LOGIN NOW",
+    "divider": "Or continue with",
+    "google": "Continue with Google"
+  },
+  "register": {
+    "text": "Don't have an account?",
+    "link": "Sign up"
+  }
+}

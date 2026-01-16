@@ -1,0 +1,57 @@
+{
+  "section": {
+    "badge": "WESENTLICHE FUNKTIONEN",
+    "title": "Umfassende Tools",
+    "subtitle": "Für Dein Wachstum"
+  },
+  "features": {
+    "keywordResearch": {
+      "title": "Keyword-Recherche",
+      "shortTitle": "Keywords",
+      "description": "Finde die besten Keywords mit Analyse von Suchvolumen und Schwierigkeit"
+    },
+    "competitorAnalysis": {
+      "title": "Wettbewerbsanalyse",
+      "shortTitle": "Wettbewerber",
+      "description": "Entdecke Strategien der Konkurrenz und identifiziere Chancen"
+    },
+    "optimization": {
+      "title": "Umfassende Optimierung",
+      "shortTitle": "Optimierung",
+      "description": "Verbessere SEO, CTR und Engagement mit intelligenten Empfehlungen"
+    },
+    "thumbnailAI": {
+      "title": "KI-Thumbnails",
+      "shortTitle": "Thumbnails",
+      "description": "Erstelle überzeugende Thumbnails automatisch mit KI"
+    },
+    "automatedScripts": {
+      "title": "Automatisierte Skripte",
+      "shortTitle": "KI-Skripte",
+      "description": "Automatisiere die Skripterstellung mit anpassbaren Vorlagen"
+    },
+    "trendAnalysis": {
+      "title": "Trendanalyse",
+      "shortTitle": "Trends",
+      "description": "Verfolge Trends in Echtzeit für virale Inhalte"
+    },
+    "dashboard": {
+      "title": "Echtzeit-Dashboard",
+      "shortTitle": "Dashboard",
+      "description": "Wichtige Kennzahlen in einem visuellen und interaktiven Dashboard"
+    },
+    "contentCalendar": {
+      "title": "Content-Kalender",
+      "shortTitle": "Kalender",
+      "description": "Plane und terminiere Veröffentlichungen mit Zeitachsenansicht"
+    },
+    "detailedReports": {
+      "title": "Detaillierte Berichte",
+      "shortTitle": "Berichte",
+      "description": "Automatische Berichte mit umsetzbaren Erkenntnissen"
+    }
+  },
+  "cta": {
+    "learnMore": "Mehr erfahren"
+  }
+}

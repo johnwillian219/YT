@@ -1,0 +1,52 @@
+{
+  "header": {
+    "badge": "COSA DICONO I NOSTRI CREATOR",
+    "title": "Storie reali di",
+    "highlight": "crescita",
+    "subtitle": "Scopri come i creator stanno trasformando i loro canali"
+  },
+  "carousel": {
+    "prev": "Testimonianza precedente",
+    "next": "Testimonianza successiva",
+    "goTo": "Vai alla testimonianza {index}",
+    "counter": "{current} / {total}"
+  },
+  "testimonials": [
+    {
+      "name": "Mariana Silva",
+      "role": "Tech YouTuber · 2M iscritti",
+      "content": "Sono passata da 10k a 2M iscritti in 18 mesi grazie a NinjaTube. La ricerca delle keyword ha cambiato tutto!",
+      "rating": 5
+    },
+    {
+      "name": "Carlos Santos",
+      "role": "Gaming · 800K iscritti",
+      "content": "La dashboard in tempo reale mi permette di prendere decisioni molto più velocemente. Strumento essenziale.",
+      "rating": 5
+    },
+    {
+      "name": "Ana Rodrigues",
+      "role": "Educazione · 1,5M iscritti",
+      "content": "L’IA per le miniature mi fa risparmiare ore di lavoro. Risultati professionali in pochi secondi.",
+      "rating": 5
+    },
+    {
+      "name": "Pedro Almeida",
+      "role": "Viaggi · 1,2M iscritti",
+      "content": "Il calendario dei contenuti ha rivoluzionato la mia organizzazione. Non salto più una pubblicazione.",
+      "rating": 5
+    },
+    {
+      "name": "Beatriz Costa",
+      "role": "Cucina · 950K iscritti",
+      "content": "L’analisi dei competitor ha rivelato opportunità che non avrei mai immaginato da sola.",
+      "rating": 5
+    }
+  ],
+  "cta": {
+    "title": "Pronto a trasformare il tuo canale?",
+    "subtitle": "Inizia il tuo percorso di crescita",
+    "button": "Inizia ora",
+    "features": ["Nessun impegno", "Cancellazione semplice", "Supporto 24/7"]
+  }
+}

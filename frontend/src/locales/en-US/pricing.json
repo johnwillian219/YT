@@ -1,0 +1,116 @@
+{
+  "header": {
+    "badge": "GROW YOUR CHANNEL NOW",
+    "title": "Boost your",
+    "highlight": "Growth"
+  },
+  "billing": {
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "yearlyDiscount": "(-35%)"
+  },
+  "priceDisplay": {
+    "equivalent": "Equivalent to",
+    "perMonth": "/month",
+    "perYear": "/year",
+    "volumeDiscount": "Volume discount",
+    "perChannelMonth": "/channel/month",
+    "perChannel": "/channel",
+    "startNow": "Start now, no card required",
+    "saveYearly": "Save 35% with yearly payment",
+    "progressiveDiscount": "Progressive discount per channel"
+  },
+  "plans": {
+    "free": {
+      "name": "Free",
+      "tagline": "Test without commitment",
+      "badge": "TEST",
+      "channels": "1 channel",
+      "cta": "Start Now",
+      "marketingTips": [
+        "Ideal to test the platform",
+        "Start optimizing your videos today",
+        "No risk, no commitment"
+      ]
+    },
+    "pro": {
+      "name": "Pro",
+      "tagline": "Guaranteed growth",
+      "badge": "MOST CHOSEN",
+      "channels": "1 channel",
+      "cta": "Try Free 14 Days",
+      "marketingTips": [
+        "Get 14 free days to test",
+        "Guaranteed growth",
+        "Optimize 100% of your channel"
+      ]
+    },
+    "proPlus": {
+      "name": "Pro Plus",
+      "tagline": "For multiple channels",
+      "badge": "AGENCIES",
+      "channels": "2+ channels",
+      "cta": "Start Pro Plus",
+      "marketingTips": [
+        "Save up to 30% with multiple channels",
+        "Perfect for marketing agencies",
+        "Unified dashboard for all channels"
+      ]
+    }
+  },
+  "features": {
+    "free": [
+      "Basic Keyword Research",
+      "Basic Analysis",
+      "Basic title optimization",
+      "Limited Dashboard",
+      "AI Thumbnails",
+      "Automated Scripts",
+      "Content Calendar",
+      "Detailed reports"
+    ],
+    "pro": [
+      "Unlimited Keyword Research",
+      "Advanced analysis",
+      "Title optimization with AI",
+      "Description optimization with AI",
+      "Tag optimization with AI",
+      "Unlimited AI Thumbnails",
+      "Automated Scripts with AI",
+      "Complete Real-time Dashboard",
+      "Smart Content Calendar",
+      "Weekly detailed reports"
+    ],
+    "proPlus": [
+      "All Pro features",
+      "Multi-channel unified dashboard",
+      "Progressive discount",
+      "Comparative analysis between channels",
+      "Consolidated reports",
+      "24/7 priority support",
+      "Accelerated growth",
+      "Personalized training"
+    ]
+  },
+  "discountTable": {
+    "title": "Pro Plus Discounts",
+    "levels": {
+      "level1": {
+        "discount": "10% OFF",
+        "channels": "2-5 channels",
+        "price": "€8.99/channel"
+      },
+      "level2": {
+        "discount": "20% OFF",
+        "channels": "6-10 channels",
+        "price": "€7.99/channel"
+      },
+      "level3": {
+        "discount": "30% OFF",
+        "channels": "11+ channels",
+        "price": "€6.99/channel"
+      }
+    },
+    "note": "Prices per channel • Save by managing multiple channels"
+  }
+}

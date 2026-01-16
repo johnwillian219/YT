@@ -1,0 +1,226 @@
+/* Cyberpunk Theme - Main theme for NinjaTube */
+:root[data-theme="cyberpunk"] {
+  /* Cyberpunk Colors */
+  --color-background: #0a0a0f;
+  --color-surface: #151522;
+  --color-surface-elevated: #1e1e2d;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a0a0c0;
+  --color-text-tertiary: #6a6a8a;
+
+  /* Neon Colors */
+  --color-neon-purple: #b967ff;
+  --color-neon-pink: #ff2e8b;
+  --color-neon-blue: #00d9ff;
+  --color-neon-green: #00ff9d;
+  --color-neon-yellow: #ffea00;
+
+  /* Primary = Neon Purple */
+  --color-primary-50: #f9f0ff;
+  --color-primary-100: #e6ccff;
+  --color-primary-200: #d1a3ff;
+  --color-primary-300: #b967ff;
+  --color-primary-400: #a333ff;
+  --color-primary-500: #8a00ff;
+  --color-primary-600: #7200d4;
+  --color-primary-700: #5a00aa;
+  --color-primary-800: #420080;
+  --color-primary-900: #2a0055;
+
+  /* Accent Colors */
+  --color-accent-blue: var(--color-neon-blue);
+  --color-accent-pink: var(--color-neon-pink);
+  --color-accent-cyan: var(--color-neon-green);
+
+  /* Semantic Colors */
+  --color-success: var(--color-neon-green);
+  --color-warning: var(--color-neon-yellow);
+  --color-error: #ff3333;
+  --color-info: var(--color-neon-blue);
+
+  /* Borders with glow */
+  --color-border: #2a2a3a;
+  --color-border-light: #3a3a4a;
+  --color-border-glow: rgba(185, 103, 255, 0.3);
+
+  /* Neon Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(185, 103, 255, 0.1);
+  --shadow-md:
+    0 4px 6px -1px rgba(185, 103, 255, 0.15),
+    0 2px 4px -1px rgba(0, 217, 255, 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgba(185, 103, 255, 0.2),
+    0 4px 6px -2px rgba(0, 217, 255, 0.15);
+  --shadow-xl:
+    0 20px 25px -5px rgba(185, 103, 255, 0.25),
+    0 10px 10px -5px rgba(0, 217, 255, 0.1);
+
+  /* Neon Gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--color-neon-purple) 0%,
+    var(--color-neon-pink) 50%,
+    var(--color-neon-blue) 100%
+  );
+  --gradient-surface: linear-gradient(
+    180deg,
+    var(--color-surface) 0%,
+    #0d0d15 100%
+  );
+  --gradient-glass: linear-gradient(
+    135deg,
+    rgba(185, 103, 255, 0.05) 0%,
+    rgba(0, 217, 255, 0.03) 100%
+  );
+  --gradient-neon: linear-gradient(
+    90deg,
+    var(--color-neon-purple) 0%,
+    var(--color-neon-pink) 33%,
+    var(--color-neon-blue) 66%,
+    var(--color-neon-green) 100%
+  );
+
+  /* Glow Effects */
+  --glow-primary: 0 0 20px rgba(185, 103, 255, 0.5);
+  --glow-blue: 0 0 20px rgba(0, 217, 255, 0.5);
+  --glow-pink: 0 0 20px rgba(255, 46, 139, 0.5);
+}
+
+/* Apply cyberpunk theme styles */
+body[data-theme="cyberpunk"] {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  background-image:
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(185, 103, 255, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(0, 217, 255, 0.1) 0%,
+      transparent 50%
+    );
+}
+
+/* Cyberpunk Component Styles */
+[data-theme="cyberpunk"] .card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="cyberpunk"] .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-neon);
+  opacity: 0.7;
+}
+
+[data-theme="cyberpunk"] .glass-card {
+  background: var(--gradient-glass);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border-glow);
+  box-shadow: var(--shadow-lg), var(--glow-primary);
+}
+
+[data-theme="cyberpunk"] .btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  box-shadow: var(--shadow-md), var(--glow-primary);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+[data-theme="cyberpunk"] .btn-primary:hover {
+  box-shadow:
+    var(--shadow-xl),
+    var(--glow-primary),
+    0 0 30px rgba(185, 103, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+[data-theme="cyberpunk"] .btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+[data-theme="cyberpunk"] .btn-primary:hover::after {
+  left: 100%;
+}
+
+[data-theme="cyberpunk"] .text-gradient {
+  background: var(--gradient-neon);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(185, 103, 255, 0.3);
+}
+
+[data-theme="cyberpunk"] .border-glow {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+    var(--gradient-primary) border-box;
+  box-shadow: var(--glow-primary);
+}
+
+/* Scan line effect */
+[data-theme="cyberpunk"] .scan-line {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="cyberpunk"] .scan-line::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-neon-blue),
+    transparent
+  );
+  animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+/* Neon text glow */
+[data-theme="cyberpunk"] .neon-text {
+  color: var(--color-neon-purple);
+  text-shadow:
+    0 0 5px var(--color-neon-purple),
+    0 0 10px var(--color-neon-purple),
+    0 0 20px var(--color-neon-purple);
+}

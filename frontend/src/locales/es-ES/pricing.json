@@ -1,0 +1,116 @@
+{
+  "header": {
+    "badge": "HAZ CRECER TU CANAL AHORA",
+    "title": "Impulsa tu",
+    "highlight": "Crecimiento"
+  },
+  "billing": {
+    "monthly": "Mensual",
+    "yearly": "Anual",
+    "yearlyDiscount": "(-35%)"
+  },
+  "priceDisplay": {
+    "equivalent": "Equivalente a",
+    "perMonth": "/mes",
+    "perYear": "/año",
+    "volumeDiscount": "Descuento por volumen",
+    "perChannelMonth": "/canal/mes",
+    "perChannel": "/canal",
+    "startNow": "Empieza ahora, sin tarjeta",
+    "saveYearly": "Ahorra 35% con pago anual",
+    "progressiveDiscount": "Descuento progresivo por canal"
+  },
+  "plans": {
+    "free": {
+      "name": "Gratis",
+      "tagline": "Prueba sin compromiso",
+      "badge": "PRUEBA",
+      "channels": "1 canal",
+      "cta": "Empezar Ahora",
+      "marketingTips": [
+        "Ideal para probar la plataforma",
+        "Empieza a optimizar tus videos hoy",
+        "Sin riesgo, sin compromiso"
+      ]
+    },
+    "pro": {
+      "name": "Pro",
+      "tagline": "Crecimiento garantizado",
+      "badge": "MÁS ELEGIDO",
+      "channels": "1 canal",
+      "cta": "Prueba Gratis 14 Días",
+      "marketingTips": [
+        "14 días gratis para probar",
+        "Crecimiento garantizado",
+        "Optimiza el 100% de tu canal"
+      ]
+    },
+    "proPlus": {
+      "name": "Pro Plus",
+      "tagline": "Para múltiples canales",
+      "badge": "AGENCIAS",
+      "channels": "2+ canales",
+      "cta": "Empezar Pro Plus",
+      "marketingTips": [
+        "Ahorra hasta un 30% con varios canales",
+        "Perfecto para agencias de marketing",
+        "Dashboard unificado para todos los canales"
+      ]
+    }
+  },
+  "features": {
+    "free": [
+      "Investigación básica de palabras clave",
+      "Análisis básico",
+      "Optimización básica de títulos",
+      "Dashboard limitado",
+      "Miniaturas con IA",
+      "Scripts automatizados",
+      "Calendario de contenido",
+      "Informes detallados"
+    ],
+    "pro": [
+      "Investigación de palabras clave ilimitada",
+      "Análisis avanzado",
+      "Optimización de títulos con IA",
+      "Optimización de descripciones con IA",
+      "Optimización de etiquetas con IA",
+      "Miniaturas IA ilimitadas",
+      "Scripts automatizados con IA",
+      "Dashboard completo en tiempo real",
+      "Calendario de contenido inteligente",
+      "Informes detallados semanales"
+    ],
+    "proPlus": [
+      "Todas las funciones Pro",
+      "Dashboard unificado multicanal",
+      "Descuento progresivo",
+      "Análisis comparativo entre canales",
+      "Informes consolidados",
+      "Soporte prioritario 24/7",
+      "Crecimiento acelerado",
+      "Formación personalizada"
+    ]
+  },
+  "discountTable": {
+    "title": "Descuentos Pro Plus",
+    "levels": {
+      "level1": {
+        "discount": "10% DTO",
+        "channels": "2-5 canales",
+        "price": "€8.99/canal"
+      },
+      "level2": {
+        "discount": "20% DTO",
+        "channels": "6-10 canales",
+        "price": "€7.99/canal"
+      },
+      "level3": {
+        "discount": "30% DTO",
+        "channels": "11+ canales",
+        "price": "€6.99/canal"
+      }
+    },
+    "note": "Precios por canal • Ahorra gestionando varios canales"
+  }
+}

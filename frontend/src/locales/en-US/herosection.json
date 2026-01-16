@@ -1,0 +1,51 @@
+{
+  "badge": {
+    "text": "The preferred tool of top creators"
+  },
+  "headline": {
+    "line1": "Master the",
+    "line2": "YouTube Algorithm"
+  },
+  "description": {
+    "text": "Complete platform with {ai} for research, optimization and growth of your channel. All in one place.",
+    "ai": "advanced AI"
+  },
+  "cta": {
+    "startFree": {
+      "text": "Start Free",
+      "aria": "Start 14-day free trial"
+    },
+    "watchDemo": {
+      "text": "Watch Demo (3min)",
+      "aria": "Watch 3-minute demonstration"
+    }
+  },
+  "videoPreview": {
+    "title": "See the platform in action (2:15)",
+    "playing": "Playing...",
+    "demoBadge": "DEMO",
+    "aria": {
+      "play": "Play video",
+      "pause": "Pause video",
+      "close": "Close preview"
+    }
+  },
+  "features": {
+    "analytics": {
+      "title": "Real-time Analytics",
+      "description": "Monitor views, engagement and growth"
+    },
+    "seo": {
+      "title": "Smart SEO",
+      "description": "Optimize titles, descriptions and tags with AI"
+    },
+    "competitorAnalysis": {
+      "title": "Competitor Analysis",
+      "description": "Discover strategies from similar channels"
+    },
+    "contentProtection": {
+      "title": "Content Protection",
+      "description": "Detect copies and protect your content"
+    }
+  }
+}

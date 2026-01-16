@@ -1,0 +1,52 @@
+{
+  "header": {
+    "badge": "CE QUE DISENT NOS CRÉATEURS",
+    "title": "Des histoires réelles de",
+    "highlight": "croissance",
+    "subtitle": "Découvrez comment les créateurs transforment leurs chaînes"
+  },
+  "carousel": {
+    "prev": "Témoignage précédent",
+    "next": "Témoignage suivant",
+    "goTo": "Aller au témoignage {index}",
+    "counter": "{current} / {total}"
+  },
+  "testimonials": [
+    {
+      "name": "Mariana Silva",
+      "role": "YouTubeuse Tech · 2M d’abonnés",
+      "content": "Je suis passée de 10k à 2M d’abonnés en 18 mois grâce à NinjaTube. L’analyse des mots-clés a tout changé !",
+      "rating": 5
+    },
+    {
+      "name": "Carlos Santos",
+      "role": "Gaming · 800K d’abonnés",
+      "content": "Le tableau de bord en temps réel me permet de prendre des décisions plus rapidement. Un outil indispensable.",
+      "rating": 5
+    },
+    {
+      "name": "Ana Rodrigues",
+      "role": "Éducation · 1,5M d’abonnés",
+      "content": "L’IA pour les miniatures me fait gagner des heures. Des résultats professionnels en quelques secondes.",
+      "rating": 5
+    },
+    {
+      "name": "Pedro Almeida",
+      "role": "Voyage · 1,2M d’abonnés",
+      "content": "Le calendrier de contenu a totalement structuré ma chaîne. Je ne rate plus aucune publication.",
+      "rating": 5
+    },
+    {
+      "name": "Beatriz Costa",
+      "role": "Cuisine · 950K d’abonnés",
+      "content": "L’analyse des concurrents a révélé des opportunités que je n’aurais jamais identifiées seule.",
+      "rating": 5
+    }
+  ],
+  "cta": {
+    "title": "Prêt à transformer votre chaîne ?",
+    "subtitle": "Commencez votre parcours de croissance",
+    "button": "Commencer maintenant",
+    "features": ["Sans engagement", "Résiliation facile", "Support 24/7"]
+  }
+}

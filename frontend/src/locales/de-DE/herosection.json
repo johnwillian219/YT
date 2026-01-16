@@ -1,0 +1,51 @@
+{
+  "badge": {
+    "text": "Das bevorzugte Tool führender Creator"
+  },
+  "headline": {
+    "line1": "Beherrsche den",
+    "line2": "YouTube-Algorithmus"
+  },
+  "description": {
+    "text": "Komplette Plattform mit {ai} für Recherche, Optimierung und Wachstum deines Kanals. Alles an einem Ort.",
+    "ai": "fortschrittlicher KI"
+  },
+  "cta": {
+    "startFree": {
+      "text": "Kostenlos Starten",
+      "aria": "14-tägige kostenlose Testversion starten"
+    },
+    "watchDemo": {
+      "text": "Demo ansehen (3 Min.)",
+      "aria": "3-minütige Demonstration ansehen"
+    }
+  },
+  "videoPreview": {
+    "title": "Sieh dir die Plattform in Aktion an (2:15)",
+    "playing": "Wird abgespielt...",
+    "demoBadge": "DEMO",
+    "aria": {
+      "play": "Video abspielen",
+      "pause": "Video pausieren",
+      "close": "Vorschau schließen"
+    }
+  },
+  "features": {
+    "analytics": {
+      "title": "Echtzeit-Analysen",
+      "description": "Überwache Aufrufe, Engagement und Wachstum"
+    },
+    "seo": {
+      "title": "Intelligentes SEO",
+      "description": "Optimiere Titel, Beschreibungen und Tags mit KI"
+    },
+    "competitorAnalysis": {
+      "title": "Wettbewerbsanalyse",
+      "description": "Entdecke Strategien ähnlicher Kanäle"
+    },
+    "contentProtection": {
+      "title": "Inhaltsschutz",
+      "description": "Erkenne Kopien und schütze deine Inhalte"
+    }
+  }
+}
