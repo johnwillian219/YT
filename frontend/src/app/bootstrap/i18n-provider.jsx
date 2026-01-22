@@ -1,23 +1,21 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 
-// Mapeamento de idiomas do navegador para os suportados pelo app
-const SUPPORTED_LOCALES = [
-  "pt-BR",
-  "en-US",
-  "es-ES",
-  "fr-FR",
-  "de-DE",
-  "it-IT",
-];
+// Mapeamento de idiomas suportados
+const SUPPORTED_LOCALES = {
+  "pt-BR": "Português (Brasil)",
+  "en-US": "English (US)",
+  "es-ES": "Español",
+  "fr-FR": "Français",
+  "de-DE": "Deutsch",
+  "it-IT": "Italiano",
+};
 
-// Mapeamento de fallback (idioma do browser -> idioma suportado)
+// Mapeamento de fallback
 const LANGUAGE_MAP = {
   // Português
   pt: "pt-BR",
   "pt-BR": "pt-BR",
-  "pt-PT": "pt-BR",
-  "pt-AO": "pt-BR",
-  "pt-MZ": "pt-BR",
+  "pt-PT": "pt-BR", // Poderia criar pt-PT separado se necessário
 
   // Inglês
   en: "en-US",
@@ -25,282 +23,259 @@ const LANGUAGE_MAP = {
   "en-GB": "en-US",
   "en-CA": "en-US",
   "en-AU": "en-US",
-  "en-NZ": "en-US",
-  "en-IN": "en-US",
 
   // Espanhol
   es: "es-ES",
   "es-ES": "es-ES",
   "es-MX": "es-ES",
   "es-AR": "es-ES",
-  "es-CL": "es-ES",
-  "es-CO": "es-ES",
-  "es-PE": "es-ES",
-  "es-VE": "es-ES",
 
   // Francês
   fr: "fr-FR",
   "fr-FR": "fr-FR",
   "fr-CA": "fr-FR",
-  "fr-BE": "fr-FR",
-  "fr-CH": "fr-FR",
 
   // Alemão
   de: "de-DE",
   "de-DE": "de-DE",
-  "de-AT": "de-DE",
-  "de-CH": "de-DE",
 
   // Italiano
   it: "it-IT",
   "it-IT": "it-IT",
-  "it-CH": "it-IT",
-
-  // Fallback padrão
-  default: "pt-BR",
 };
 
-// Função para detectar e normalizar idioma do browser
-function detectBrowserLanguage() {
-  try {
-    // 1. Tenta pegar o idioma salvo no localStorage primeiro (preferência do usuário)
-    const savedLocale = localStorage.getItem("ninjatube-locale");
-    if (savedLocale && SUPPORTED_LOCALES.includes(savedLocale)) {
-      console.log("🌐 Usando idioma salvo:", savedLocale);
-      return savedLocale;
-    }
+// Cache de traduções já carregadas
+const translationsCache = new Map();
 
-    // 2. Detecta idioma do navegador
-    const browserLanguage =
-      navigator.language ||
-      navigator.userLanguage ||
-      navigator.languages?.[0] ||
-      "pt-BR";
-
-    console.log("🌐 Idioma do navegador detectado:", browserLanguage);
-
-    // 3. Normaliza o idioma (ex: 'pt' -> 'pt-BR', 'en' -> 'en-US')
-    const normalizedLocale =
-      LANGUAGE_MAP[browserLanguage] ||
-      LANGUAGE_MAP[browserLanguage.split("-")[0]] ||
-      LANGUAGE_MAP.default;
-
-    console.log("🌐 Idioma normalizado para:", normalizedLocale);
-    return normalizedLocale;
-  } catch (error) {
-    console.warn(
-      "⚠️ Erro ao detectar idioma, usando pt-BR como fallback:",
-      error
-    );
-    return "pt-BR";
-  }
-}
-
-// Crie um contexto para compartilhar as traduções
+// Criar contexto
 export const I18nContext = React.createContext({
   locale: "pt-BR",
   setLocale: () => {},
   translations: {},
   t: (key) => key,
   isLoading: false,
-  isTransitioning: false,
+  supportedLocales: SUPPORTED_LOCALES,
+  changeLanguage: async () => {},
 });
 
-export function I18nProvider({ locale, setLocale, children }) {
-  // Detecta idioma do browser apenas na primeira renderização
-  const [initialLocale] = useState(() => {
-    const detectedLocale = detectBrowserLanguage();
-    console.log("🌐 Idioma inicial definido como:", detectedLocale);
-    return detectedLocale;
-  });
-
-  // Se o locale passado como prop for diferente do inicial, usa o passado
-  const effectiveLocale = locale || initialLocale;
-
-  // Estados principais
+export function I18nProvider({ children }) {
+  const [locale, setLocaleState] = useState("pt-BR");
   const [translations, setTranslations] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
-  // Refs para cache e controle
-  const previousTranslationsRef = useRef({});
-  const currentTranslationsRef = useRef({});
-  const previousLocaleRef = useRef(effectiveLocale);
-  const transitionStartTimeRef = useRef(null);
+  // Detectar idioma inicial apenas uma vez
+  const detectInitialLocale = useCallback(() => {
+    try {
+      // 1. Verificar localStorage primeiro (preferência do usuário)
+      const saved = localStorage.getItem("ninjatube-locale");
+      if (saved && SUPPORTED_LOCALES[saved]) {
+        console.log("🌐 Usando idioma salvo:", saved);
+        return saved;
+      }
 
-  // Efeito para carregar traduções quando o locale mudar
-  useEffect(() => {
-    const loadTranslations = async () => {
-      // Salva as traduções atuais como anteriores antes de começar
-      previousTranslationsRef.current = { ...currentTranslationsRef.current };
-      transitionStartTimeRef.current = Date.now();
+      // 2. Verificar URL parameter (para testes)
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLang = urlParams.get("lang");
+      if (urlLang && SUPPORTED_LOCALES[urlLang]) {
+        console.log("🌐 Usando idioma da URL:", urlLang);
+        return urlLang;
+      }
 
-      // Só inicia transição se o locale realmente mudou
-      if (previousLocaleRef.current !== effectiveLocale) {
-        setIsTransitioning(true);
-        setIsLoading(true);
-        previousLocaleRef.current = effectiveLocale;
+      // 3. Detectar do navegador
+      const browserLang =
+        navigator.language || navigator.userLanguage || "pt-BR";
+      console.log("🌐 Idioma do navegador:", browserLang);
+
+      // Normalizar o idioma
+      const normalized =
+        LANGUAGE_MAP[browserLang] ||
+        LANGUAGE_MAP[browserLang.split("-")[0]] ||
+        "pt-BR";
+
+      console.log("🌐 Idioma normalizado:", normalized);
+      return normalized;
+    } catch (error) {
+      console.warn("⚠️ Erro na detecção de idioma:", error);
+      return "pt-BR";
+    }
+  }, []);
+
+  // Função para mudar idioma
+  const changeLanguage = useCallback(
+    async (newLocale) => {
+      if (!SUPPORTED_LOCALES[newLocale] || newLocale === locale) {
+        return;
       }
 
       try {
-        console.log(`🌐 Carregando traduções para: ${effectiveLocale}`);
+        setIsLoading(true);
+        console.log(`🌐 Mudando para idioma: ${newLocale}`);
 
-        // Carregar módulos de tradução dinamicamente
-        const modulesToLoad = [
-          "common",
-          "auth",
-          "landingheader",
-          "herosection",
-          "features",
-          "pricing",
-          "testimonials",
-          "footer",
-          "login",
-          "register",
-          "forgot-password",
-          "reset-password",
-        ];
-        const loadedTranslations = {};
+        // Carregar traduções
+        await loadTranslations(newLocale);
 
-        for (const module of modulesToLoad) {
-          try {
-            const moduleTranslations = await import(
-              /* @vite-ignore */
-              `../../locales/${effectiveLocale}/${module}.json`
-            );
-            loadedTranslations[module] =
-              moduleTranslations.default || moduleTranslations;
-            console.log(`✅ Módulo ${module} carregado`);
-          } catch (error) {
-            console.warn(
-              `⚠️ Módulo ${module} não encontrado para ${effectiveLocale}, usando objeto vazio`
-            );
-            loadedTranslations[module] = {};
+        // Atualizar estado
+        setLocaleState(newLocale);
+        localStorage.setItem("ninjatube-locale", newLocale);
+
+        // Atualizar atributo lang do HTML
+        document.documentElement.lang = newLocale;
+
+        console.log(`✅ Idioma alterado para: ${newLocale}`);
+      } catch (error) {
+        console.error("❌ Erro ao mudar idioma:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [locale]
+  );
+
+  // Função para carregar traduções
+  const loadTranslations = useCallback(async (targetLocale) => {
+    // Verificar cache primeiro
+    if (translationsCache.has(targetLocale)) {
+      console.log(`🌐 Usando traduções em cache para: ${targetLocale}`);
+      setTranslations(translationsCache.get(targetLocale));
+      return;
+    }
+
+    try {
+      const modulesToLoad = [
+        "common",
+        "auth",
+        "landingheader",
+        "herosection",
+        "features",
+        "pricing",
+        "testimonials",
+        "footer",
+        "login",
+        "register",
+        "forgot-password",
+        "reset-password",
+      ];
+
+      const allTranslations = {};
+
+      // Carregar todos os módulos
+      for (const module of modulesToLoad) {
+        try {
+          const moduleData = await import(
+            `../../locales/${targetLocale}/${module}.json`
+          );
+          allTranslations[module] = moduleData.default || moduleData;
+        } catch (error) {
+          console.warn(
+            `⚠️ Módulo ${module} não encontrado para ${targetLocale}`
+          );
+          allTranslations[module] = {};
+        }
+      }
+
+      // Salvar no cache e estado
+      translationsCache.set(targetLocale, allTranslations);
+      setTranslations(allTranslations);
+    } catch (error) {
+      console.error(
+        `❌ Erro ao carregar traduções para ${targetLocale}:`,
+        error
+      );
+      throw error;
+    }
+  }, []);
+
+  // Inicialização
+  useEffect(() => {
+    const initialize = async () => {
+      if (isInitialized) return;
+
+      setIsLoading(true);
+      const initialLocale = detectInitialLocale();
+
+      try {
+        await loadTranslations(initialLocale);
+        setLocaleState(initialLocale);
+        document.documentElement.lang = initialLocale;
+        setIsInitialized(true);
+        console.log(`🌐 Sistema i18n inicializado com: ${initialLocale}`);
+      } catch (error) {
+        console.error("❌ Falha na inicialização do i18n:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    initialize();
+  }, [detectInitialLocale, loadTranslations, isInitialized]);
+
+  // Função de tradução
+  const t = useCallback(
+    (key, module = "common", params = {}) => {
+      try {
+        // Buscar tradução
+        const moduleTranslations = translations[module];
+        if (!moduleTranslations) {
+          console.warn(`📂 Módulo não encontrado: ${module}`);
+          return key;
+        }
+
+        // Navegar pelas chaves
+        const keys = key.split(".");
+        let value = moduleTranslations;
+
+        for (const k of keys) {
+          if (value && typeof value === "object" && k in value) {
+            value = value[k];
+          } else {
+            console.warn(`🔍 Tradução não encontrada: ${module}.${key}`);
+            return key;
           }
         }
 
-        // Atualiza as traduções atuais
-        currentTranslationsRef.current = loadedTranslations;
-        setTranslations(loadedTranslations);
-
-        // Atualiza storage e DOM
-        localStorage.setItem("ninjatube-locale", effectiveLocale);
-        document.documentElement.lang = effectiveLocale;
-
-        // Atualiza o título da página com o idioma
-        if (typeof document !== "undefined") {
-          const currentTitle = document.title;
-          const cleanTitle = currentTitle.replace(/\[.*\]/, "");
-          document.title = `${cleanTitle.trim()} [${effectiveLocale}]`;
+        // Aplicar parâmetros se for string
+        if (typeof value === "string" && params) {
+          return Object.keys(params).reduce((str, paramKey) => {
+            return str.replace(
+              new RegExp(`{{${paramKey}}}`, "g"),
+              params[paramKey]
+            );
+          }, value);
         }
 
-        console.log(`🌐 Idioma aplicado: ${effectiveLocale}`);
+        return value || key;
       } catch (error) {
-        console.error("❌ Erro ao carregar traduções:", error);
-        // Fallback para português se houver erro
-        if (effectiveLocale !== "pt-BR") {
-          console.log("🔄 Fallback para pt-BR devido a erro");
-          setLocale("pt-BR");
-        }
-      } finally {
-        setIsLoading(false);
-
-        // Tempo mínimo de transição para garantir suavidade
-        const elapsedTime = Date.now() - transitionStartTimeRef.current;
-        const minTransitionTime = 300; // 300ms mínimo
-        const remainingTime = Math.max(minTransitionTime - elapsedTime, 0);
-
-        setTimeout(() => {
-          setIsTransitioning(false);
-        }, remainingTime);
+        console.warn(`⚠️ Erro na tradução de ${module}.${key}:`, error);
+        return key;
       }
-    };
+    },
+    [translations]
+  );
 
-    loadTranslations();
-  }, [effectiveLocale, setLocale]);
-
-  // Função auxiliar para obter traduções COM CACHE INTELIGENTE
-  const t = (key, module = "common") => {
-    const keys = key.split(".");
-
-    // 1. PRIMEIRO: Tenta pegar da NOVA tradução (já carregada)
-    let value = translations[module];
-
-    // Navega pelas chaves aninhadas
-    for (const k of keys) {
-      if (value && typeof value === "object") {
-        value = value[k];
-      } else {
-        value = undefined;
-        break;
-      }
-    }
-
-    // Se encontrou na nova tradução, retorna
-    if (value !== undefined && value !== null && value !== "") {
-      return value;
-    }
-
-    // 2. SE ESTÁ EM TRANSIÇÃO E NÃO ENCONTROU, USA A TRADUÇÃO ANTERIOR
-    if (isTransitioning) {
-      let previousValue = previousTranslationsRef.current[module];
-
-      for (const k of keys) {
-        if (previousValue && typeof previousValue === "object") {
-          previousValue = previousValue[k];
-        } else {
-          previousValue = undefined;
-          break;
-        }
-      }
-
-      // Se encontrou na tradução anterior, retorna ela
-      if (
-        previousValue !== undefined &&
-        previousValue !== null &&
-        previousValue !== ""
-      ) {
-        return previousValue;
-      }
-    }
-
-    // 3. SE NÃO ENCONTROU EM LUGAR NENHUM, RETORNA A CHAVE
-    // (Apenas logamos em desenvolvimento para debug)
-    if (process.env.NODE_ENV === "development") {
-      console.warn(`🔍 Tradução não encontrada: ${module}.${key}`);
-    }
-
-    return key;
-  };
-
-  const value = {
-    locale: effectiveLocale,
-    setLocale,
+  // Valor do contexto
+  const contextValue = {
+    locale,
+    setLocale: changeLanguage,
     translations,
     t,
-    isLoading: isTransitioning,
-    isTransitioning,
+    isLoading,
+    supportedLocales: SUPPORTED_LOCALES,
+    changeLanguage,
   };
 
-  return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
+  return (
+    <I18nContext.Provider value={contextValue}>{children}</I18nContext.Provider>
+  );
 }
 
-// Hook para usar o contexto
+// Hook
 export const useI18n = () => {
   const context = React.useContext(I18nContext);
   if (!context) {
-    console.warn("useI18n usado fora de I18nProvider - retornando fallback");
-    return {
-      locale: "pt-BR",
-      setLocale: () => {},
-      translations: {},
-      t: (key) => key,
-      isLoading: false,
-      isTransitioning: false,
-    };
+    throw new Error("useI18n deve ser usado dentro de I18nProvider");
   }
   return context;
 };
 
-// Exportação padrão para compatibilidade
 export default I18nProvider;

@@ -2,7 +2,7 @@
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { AppProviders } from "./bootstrap/app-providers"; // ← Import correto
+import { AppProviders } from "./bootstrap/app-providers";
 import AppRouter from "./router/AppRouter.jsx";
 
 const queryClient = new QueryClient({
@@ -16,16 +16,14 @@ const queryClient = new QueryClient({
 
 function App() {
   return (
-    <AppProviders>
-      {" "}
-      {/* ← Usando AppProviders consolidado */}
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <AppProviders>
         <BrowserRouter>
           <AppRouter />
         </BrowserRouter>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </AppProviders>
+      </AppProviders>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 

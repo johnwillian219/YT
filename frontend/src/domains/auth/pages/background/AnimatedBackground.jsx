@@ -1,3 +1,4 @@
+// frontend/src/domains/auth/pages/background/AnimatedBackground.jsx
 import React, { useState, useEffect } from "react";
 import GradientWaves from "./GradientWaves";
 import Particles from "./Particles";

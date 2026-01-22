@@ -1,61 +1,32 @@
 {
-  "name": "youtube-analytics-platform",
+  "name": "backend",
   "version": "1.0.0",
-  "private": true,
-  "workspaces": [
-    "frontend",
-    "backend",
-    "shared"
-  ],
+  "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
-    "dev:frontend": "cd frontend && npm run dev",
-    "dev:backend": "cd backend && npm run dev",
-    "build": "npm run build:frontend && npm run build:backend",
-    "build:frontend": "cd frontend && npm run build",
-    "build:backend": "cd backend && npm run build",
-    "test": "npm run test:frontend && npm run test:backend",
-    "test:frontend": "cd frontend && npm test",
-    "test:backend": "cd backend && npm test",
-    "lint": "npm run lint:frontend && npm run lint:backend",
-    "lint:frontend": "cd frontend && npm run lint",
-    "lint:backend": "cd backend && npm run lint",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
-    "prepare": "husky install",
-    "docker:up": "docker-compose up -d",
-    "docker:down": "docker-compose down",
-    "docker:logs": "docker-compose logs -f",
-    "docker:clean": "docker-compose down -v",
-    "db:migrate": "cd backend && npm run prisma:migrate",
-    "db:seed": "cd backend && npm run prisma:seed",
-    "db:studio": "cd backend && npm run prisma:studio"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "prisma:generate": "npx prisma generate",
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:studio": "npx prisma studio",
+    "prisma:reset": "npx prisma migrate reset --force",
+    "prisma:deploy": "npx prisma migrate deploy",
+    "db:create": "createdb ninjatube_db || echo 'Database already exists or cannot create'",
+    "db:seed": "node prisma/seed.js",
+    "test:db": "node -e \"import('dotenv/config'); import('./src/infrastructure/database/client.js').then(m => m.checkDatabaseConnection().then(console.log).catch(console.error))\""
+  },
+  "dependencies": {
+    "@prisma/client": "^5.7.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.9.7",
+    "nodemon": "^3.0.1"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.2.0",
-    "prettier": "^3.1.0"
-  },
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=9.0.0"
-  },
-  "keywords": [
-    "youtube",
-    "analytics",
-    "react",
-    "nodejs",
-    "typescript",
-    "monorepo"
-  ],
-  "author": "Seu Nome",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/seu-usuario/youtube-analytics-platform.git"
-  },
-  "bugs": {
-    "url": "https://github.com/seu-usuario/youtube-analytics-platform/issues"
-  },
-  "homepage": "https://github.com/seu-usuario/youtube-analytics-platform#readme"
+    "prisma": "^5.7.0"
+  }
 }

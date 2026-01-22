@@ -1,3 +1,4 @@
+// frontend/src/public/components/ThemeToggle.jsx
 import React from "react";
 import { useTheme } from "../../app/bootstrap/theme-provider";
 import { Moon, Sun, Zap } from "lucide-react";
@@ -15,27 +16,27 @@ const ThemeToggle = () => {
         {/* Cyberpunk icon */}
         <Zap
           className={`w-5 h-5 transition-all duration-300 ${
-            theme === "cyberpunk" ?
-              "opacity-100 rotate-0 text-purple-400"
-            : "opacity-0 rotate-90 absolute inset-0"
+            theme === "cyberpunk"
+              ? "opacity-100 rotate-0 text-purple-400"
+              : "opacity-0 rotate-90 absolute inset-0"
           }`}
         />
 
         {/* Dark icon */}
         <Moon
           className={`w-5 h-5 transition-all duration-300 ${
-            theme === "dark" ?
-              "opacity-100 rotate-0"
-            : "opacity-0 -rotate-90 absolute inset-0"
+            theme === "dark"
+              ? "opacity-100 rotate-0"
+              : "opacity-0 -rotate-90 absolute inset-0"
           }`}
         />
 
         {/* Light icon */}
         <Sun
           className={`w-5 h-5 transition-all duration-300 ${
-            theme === "light" ?
-              "opacity-100 rotate-0 text-yellow-400"
-            : "opacity-0 rotate-90 absolute inset-0"
+            theme === "light"
+              ? "opacity-100 rotate-0 text-yellow-400"
+              : "opacity-0 rotate-90 absolute inset-0"
           }`}
         />
       </div>

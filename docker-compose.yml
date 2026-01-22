@@ -1,44 +1,130 @@
+# docker-compose.yml (na raiz do projeto)
 version: "3.8"
 
 services:
-  # Banco de dados
+  # ============ FRONTEND ============
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ninjatube-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:3000/api
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+      - ./frontend/package.json:/app/package.json
+      - frontend_node_modules:/app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - ninjatube-network
+
+  # ============ BACKEND ============
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: ninjatube-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://ninjatube:ninjatube123@postgres:5432/ninjatube?schema=public
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=${JWT_SECRET:-default-dev-secret-change-in-production}
+      - JWT_REFRESH_SECRET=${JWT_REFRESH_SECRET:-default-refresh-secret-change-in-production}
+    volumes:
+      - ./backend/src:/app/src
+      - ./backend/prisma:/app/prisma
+      - backend_node_modules:/app/node_modules
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - ninjatube-network
+
+  # ============ DATABASE ============
   postgres:
     image: postgres:15-alpine
-    container_name: youtube-analytics-db
+    container_name: ninjatube-postgres
     environment:
-      POSTGRES_DB: youtube_analytics
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin123
+      POSTGRES_USER: ninjatube
+      POSTGRES_PASSWORD: ninjatube123
+      POSTGRES_DB: ninjatube
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+      - ./infra/docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U admin"]
+      test: ["CMD-SHELL", "pg_isready -U ninjatube"]
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - ninjatube-network
 
-  # Redis
+  # ============ REDIS ============
   redis:
     image: redis:7-alpine
-    container_name: youtube-analytics-redis
+    container_name: ninjatube-redis
     ports:
       - "6379:6379"
     volumes:
       - redis_data:/data
-    command: redis-server --appendonly yes
+      - ./infra/docker/redis/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - ninjatube-network
 
-  # Adminer (UI para PostgreSQL)
-  adminer:
-    image: adminer
-    container_name: youtube-analytics-adminer
+  # ============ PGADMIN (Opcional) ============
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: ninjatube-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@ninjatube.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
     ports:
-      - "8080:8080"
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
     depends_on:
       - postgres
+    networks:
+      - ninjatube-network
+
+  # ============ REDIS INSIGHT (Opcional) ============
+  redis-insight:
+    image: redislabs/redisinsight:latest
+    container_name: ninjatube-redis-insight
+    ports:
+      - "5540:5540"
+    volumes:
+      - redis_insight_data:/db
+    depends_on:
+      - redis
+    networks:
+      - ninjatube-network
 
 volumes:
   postgres_data:
   redis_data:
+  redis_insight_data:
+  pgadmin_data:
+  frontend_node_modules:
+  backend_node_modules:
+
+networks:
+  ninjatube-network:
+    driver: bridge

@@ -1,3 +1,4 @@
+// frontend/src/main.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./assets/styles/globals.css"; // ← IMPORTA AQUI

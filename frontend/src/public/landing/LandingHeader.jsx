@@ -1,4 +1,4 @@
-// LandingHeader.jsx
+//frontend/src/public/landing/LandingHeader.jsx
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -225,7 +225,7 @@ const LandingHeader = () => {
         ],
       },
     ],
-    [t]
+    [t],
   );
 
   // Links de navegação
@@ -255,7 +255,7 @@ const LandingHeader = () => {
         onClick: null,
       },
     ],
-    [t, scrollToSection]
+    [t, scrollToSection],
   );
 
   // Classes do header
@@ -264,7 +264,7 @@ const LandingHeader = () => {
       scrolled ?
         `${themeStyles.bg.header} border-b ${themeStyles.border.primary} py-3 transition-all duration-300 ${themeStyles.shadow}`
       : "bg-transparent py-5 transition-all duration-300",
-    [scrolled, themeStyles]
+    [scrolled, themeStyles],
   );
 
   // Funções auxiliares
@@ -277,7 +277,7 @@ const LandingHeader = () => {
 
   const getHoverBg = useCallback(
     () => (theme === "light" ? "hover:bg-gray-100" : "hover:bg-gray-800/50"),
-    [theme]
+    [theme],
   );
 
   // Estado para dropdown
@@ -330,7 +330,7 @@ const LandingHeader = () => {
         </div>
       </div>
     ),
-    [theme, scrollToSection, t]
+    [theme, scrollToSection, t],
   );
 
   // Componente Dropdown Desktop
