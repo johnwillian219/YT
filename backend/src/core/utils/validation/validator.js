@@ -1,4 +1,5 @@
 // backend/src/core/utils/validation/validator.js
+// Função de validação de requisições usando Joi
 export const validateRequest = async (req, schema) => {
   try {
     const { error, value } = schema.validate(req.body, {

@@ -49,9 +49,12 @@
       "title": "Detailed Reports",
       "shortTitle": "Reports",
       "description": "Automatic reports with actionable insights"
+    },
+    "communityInsights": {
+      "title": "Community Insights",
+      "shortTitle": "Community",
+      "description": "Track engagement and feedback from your followers",
+      "mobileOnly": true
     }
-  },
-  "cta": {
-    "learnMore": "Learn more"
   }
 }

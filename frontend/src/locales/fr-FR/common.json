@@ -1,0 +1,12 @@
+{
+  "notFound": {
+    "title": "Oups ! Page introuvable",
+    "description": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "goHome": "Aller à la page d'accueil",
+    "goBack": "Retour",
+    "searchTip": "Vous cherchez quelque chose de précis ?",
+    "searchDescription": "Essayez l'une de ces pages populaires :",
+    "needHelp": "Vous avez encore des problèmes ?",
+    "contactSupport": "Contacter le support"
+  }
+}

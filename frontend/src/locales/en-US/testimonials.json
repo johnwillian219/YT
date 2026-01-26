@@ -47,6 +47,10 @@
     "title": "Ready to transform your channel?",
     "subtitle": "Start your growth journey",
     "button": "Start Now",
-    "features": ["No commitment", "Easy cancellation", "24/7 support"]
+    "features": ["No commitment", "Easy cancellation", "24/7 support"],
+    "footer": {
+      "noCommitment": "No commitment • Cancel anytime",
+      "featuresCount": "{count}+ features included"
+    }
   }
 }

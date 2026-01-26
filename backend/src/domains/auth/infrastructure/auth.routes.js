@@ -1,3 +1,4 @@
+// backend/src/domains/auth/infrastructure/auth.routes.js
 import { Router } from "express";
 import * as authController from "./auth.controller.js";
 import { authMiddleware } from "../../../core/middleware/auth.middleware.js";

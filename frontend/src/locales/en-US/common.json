@@ -1,0 +1,12 @@
+{
+  "notFound": {
+    "title": "Oops! Page Not Found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "goHome": "Go to Home Page",
+    "goBack": "Go Back",
+    "searchTip": "Looking for something specific?",
+    "searchDescription": "Try one of these popular pages:",
+    "needHelp": "Still having trouble?",
+    "contactSupport": "Contact Support"
+  }
+}

@@ -1,4 +1,4 @@
-// HomePage.jsx
+//frontend/src/public/pages/home.page.jsx
 import React from "react";
 import LandingHeader from "../../public/landing/LandingHeader.jsx";
 import HeroSection from "../../public/landing/HeroSection.jsx";

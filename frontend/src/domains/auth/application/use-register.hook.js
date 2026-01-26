@@ -1,3 +1,4 @@
+// frontend/src/domains/auth/application/use-register.hook.js
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../app/bootstrap/auth-provider";

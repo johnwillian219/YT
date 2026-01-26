@@ -1,0 +1,12 @@
+{
+  "notFound": {
+    "title": "¡Ups! Página No Encontrada",
+    "description": "La página que estás buscando no existe o ha sido movida.",
+    "goHome": "Ir a la Página Principal",
+    "goBack": "Volver",
+    "searchTip": "¿Buscas algo en específico?",
+    "searchDescription": "Prueba una de estas páginas populares:",
+    "needHelp": "¿Sigues teniendo problemas?",
+    "contactSupport": "Contactar Soporte"
+  }
+}

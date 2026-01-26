@@ -49,9 +49,12 @@
       "title": "Detaillierte Berichte",
       "shortTitle": "Berichte",
       "description": "Automatische Berichte mit umsetzbaren Erkenntnissen"
+    },
+    "communityInsights": {
+      "title": "Community-Einblicke",
+      "shortTitle": "Community",
+      "description": "Verfolge Engagement und Feedback Deiner Follower",
+      "mobileOnly": true
     }
-  },
-  "cta": {
-    "learnMore": "Mehr erfahren"
   }
 }

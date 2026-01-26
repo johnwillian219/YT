@@ -1,3 +1,4 @@
+//backend/src/infrastructure/schemas/auth.schema.js
 import Joi from "joi";
 
 export const authSchemas = {

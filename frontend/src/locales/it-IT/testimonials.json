@@ -47,6 +47,10 @@
     "title": "Pronto a trasformare il tuo canale?",
     "subtitle": "Inizia il tuo percorso di crescita",
     "button": "Inizia ora",
-    "features": ["Nessun impegno", "Cancellazione semplice", "Supporto 24/7"]
+    "features": ["Nessun impegno", "Cancellazione semplice", "Supporto 24/7"],
+    "footer": {
+      "noCommitment": "Senza impegno • Annulla quando vuoi",
+      "featuresCount": "{count}+ vantaggi inclusi"
+    }
   }
 }

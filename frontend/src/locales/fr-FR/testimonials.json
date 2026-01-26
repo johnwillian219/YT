@@ -47,6 +47,10 @@
     "title": "Prêt à transformer votre chaîne ?",
     "subtitle": "Commencez votre parcours de croissance",
     "button": "Commencer maintenant",
-    "features": ["Sans engagement", "Résiliation facile", "Support 24/7"]
+    "features": ["Sans engagement", "Résiliation facile", "Support 24/7"],
+    "footer": {
+      "noCommitment": "Sans engagement • Annulez à tout moment",
+      "featuresCount": "{count}+ avantages inclus"
+    }
   }
 }

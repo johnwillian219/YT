@@ -1,3 +1,4 @@
+// backend/src/core/utils/email/email.service.js
 import nodemailer from "nodemailer";
 import { authConfig } from "../../config/auth.config.js";
 

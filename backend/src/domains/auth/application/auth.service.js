@@ -1,3 +1,4 @@
+// backend/src/domains/auth/application/auth.service.js
 import prisma from "../../../infrastructure/database/client.js";
 import { jwtService } from "../../../core/utils/encryption/jwt.service.js";
 import { hashService } from "../../../core/utils/encryption/hash.service.js";

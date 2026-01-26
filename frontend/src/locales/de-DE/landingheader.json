@@ -18,7 +18,7 @@
       "keywordResearch": "Keyword-Recherche",
       "competitorAnalysis": "Wettbewerbsanalyse",
       "titleOptimization": "Titel-Optimierung",
-      "thumbnailGenerator": "KI-Thumbnail-Generator",
+      "thumbnailGenerator": "KI-Thumbnail",
       "automatedScripts": "Automatisierte Skripte",
       "trendAnalysis": "Trendanalyse",
       "realtimeDashboard": "Echtzeit-Dashboard",
@@ -50,7 +50,7 @@
   },
   "buttons": {
     "login": "Anmeldung",
-    "startFree": "Kostenlos Starten"
+    "startFree": "Starten"
   },
   "aria": {
     "openMenu": "Menü öffnen",

@@ -1,3 +1,4 @@
+//frontend/src/app/bootstrap/auth-provider.jsx
 import React, {
   createContext,
   useContext,

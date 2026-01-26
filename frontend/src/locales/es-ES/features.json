@@ -49,9 +49,12 @@
       "title": "Informes Detallados",
       "shortTitle": "Informes",
       "description": "Informes automáticos con insights accionables"
+    },
+    "communityInsights": {
+      "title": "Insights de la comunidad",
+      "shortTitle": "Comunidad",
+      "description": "Sigue el compromiso y los comentarios de tus seguidores",
+      "mobileOnly": true
     }
-  },
-  "cta": {
-    "learnMore": "Saber más"
   }
 }

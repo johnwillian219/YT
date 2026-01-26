@@ -1,52 +1,37 @@
 // frontend/src/app/router/AppRouter.jsx
 import { Routes, Route } from "react-router-dom";
-import { lazy, Suspense } from "react";
-import LoadingSpinner from "../../shared/ui/feedback/LoadingSpinner.jsx";
+import { LazyLoader } from "./lazy-loader";
+import { AuthGuard, PublicOnlyRoute } from "./route-guards";
+import { publicRoutes, authRoutes, notFoundRoute } from "./public-routes";
+import { privateRoutes } from "./private-routes";
 
-// Lazy load pages
-const HomePage = lazy(() => import("../../public/pages/home.page.jsx"));
-const LoginPage = lazy(() => import("../../domains/auth/pages/login.page.jsx"));
-const RegisterPage = lazy(
-  () => import("../../domains/auth/pages/register.page.jsx"),
-);
-const ForgotPassword = lazy(
-  () => import("../../domains/auth/pages/forgot-password.page.jsx"),
-);
-const ResetPasswordPage = lazy(
-  () => import("../../domains/auth/pages/reset-password.page.jsx"),
-);
-const DashboardPage = lazy(
-  () => import("../../domains/dashboard/Dashboard.jsx"),
-);
-const VerifyEmailPage = lazy(
-  () => import("../../domains/auth/pages/verify-email.page.jsx"),
-);
 function AppRouter() {
   return (
-    <Suspense fallback={<LoadingSpinner />}>
+    <LazyLoader>
       <Routes>
-        {/* Public Routes */}
-        <Route path="/" element={<HomePage />} />
-        <Route path="/features" element={<div>Features Page</div>} />
-        <Route path="/pricing" element={<div>Pricing Page</div>} />
-        <Route path="/about" element={<div>About Page</div>} />
-        <Route path="/contact" element={<div>Contact Page</div>} />
+        {/* Rotas públicas */}
+        {publicRoutes.map((route) => (
+          <Route key={route.path} path={route.path} element={route.element} />
+        ))}
 
-        {/* Auth Routes */}
-        <Route path="/auth/login" element={<LoginPage />} />
-        <Route path="/auth/register" element={<RegisterPage />} />
-        <Route path="/auth/forgot-password" element={<ForgotPassword />} />
-        <Route path="/auth/reset-password" element={<ResetPasswordPage />} />
-        <Route path="/auth/verify-email" element={<VerifyEmailPage />} />
-        <Route path="/auth/verify/:token?" element={<VerifyEmailPage />} />
+        {/* Rotas de auth (somente para não autenticados) */}
+        <Route element={<PublicOnlyRoute />}>
+          {authRoutes.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element} />
+          ))}
+        </Route>
 
-        {/* Dashboard Routes - serão protegidas */}
-        <Route path="/dashboard" element={<DashboardPage />} />
+        {/* Rotas protegidas (requer auth) */}
+        <Route element={<AuthGuard />}>
+          {privateRoutes.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element} />
+          ))}
+        </Route>
 
-        {/* 404 Route */}
-        <Route path="*" element={<div>404 - Page Not Found</div>} />
+        {/* 404 Route - Página customizada */}
+        <Route path={notFoundRoute.path} element={notFoundRoute.element} />
       </Routes>
-    </Suspense>
+    </LazyLoader>
   );
 }
 

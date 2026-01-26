@@ -1,3 +1,4 @@
+//frontend/src/domains/auth/ui/register-form/RegisterForm.jsx
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../../../app/bootstrap/theme-provider";

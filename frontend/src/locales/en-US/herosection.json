@@ -29,23 +29,5 @@
       "pause": "Pause video",
       "close": "Close preview"
     }
-  },
-  "features": {
-    "analytics": {
-      "title": "Real-time Analytics",
-      "description": "Monitor views, engagement and growth"
-    },
-    "seo": {
-      "title": "Smart SEO",
-      "description": "Optimize titles, descriptions and tags with AI"
-    },
-    "competitorAnalysis": {
-      "title": "Competitor Analysis",
-      "description": "Discover strategies from similar channels"
-    },
-    "contentProtection": {
-      "title": "Content Protection",
-      "description": "Detect copies and protect your content"
-    }
   }
 }

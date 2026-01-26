@@ -49,9 +49,12 @@
       "title": "Report Dettagliati",
       "shortTitle": "Report",
       "description": "Report automatici con insight azionabili"
+    },
+    "communityInsights": {
+      "title": "Insight della community",
+      "shortTitle": "Community",
+      "description": "Monitora il coinvolgimento e i feedback dei tuoi follower",
+      "mobileOnly": true
     }
-  },
-  "cta": {
-    "learnMore": "Scopri di più"
   }
 }

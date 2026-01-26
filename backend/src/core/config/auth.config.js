@@ -1,8 +1,30 @@
+// backend/src/core/config/auth.config.js
+
+// Configurações relacionadas à autenticação e segurança
 export const authConfig = {
   nodeEnv: process.env.NODE_ENV || "development",
 
   cors: {
-    origin: process.env.CORS_ORIGIN || "http://localhost:5173", // ✅ Vite usa 5173
+    // ❌ ERRADO: Apenas uma string (usa o primeiro valor verdadeiro)
+    // origin: process.env.CORS_ORIGIN || "http://localhost:5173" || "http://192.168.1.135:5173" || "http://192.168.56.1:5173",
+
+    // ✅ CORRETO: Array de origens permitidas
+    origin: process.env.CORS_ORIGIN
+      ? process.env.CORS_ORIGIN.split(",") // Se configurado no .env
+      : [
+          "http://localhost:5173",
+          "http://localhost:3000",
+          "http://192.168.1.135:5173",
+          "http://192.168.56.1:5173",
+          // Em desenvolvimento, permitir mais flexibilidade
+          ...(process.env.NODE_ENV === "development"
+            ? [
+                /^http:\/\/localhost(:\d+)?$/, // localhost com qualquer porta
+                /^http:\/\/192\.168\.\d+\.\d+(:\d+)?$/, // IPs 192.168.x.x
+                /^http:\/\/10\.\d+\.\d+\.\d+(:\d+)?$/, // IPs 10.x.x.x
+              ]
+            : []),
+        ],
   },
 
   jwt: {

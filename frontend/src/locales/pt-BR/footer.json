@@ -6,57 +6,76 @@
   },
   "newsletter": {
     "title": "Receba dicas exclusivas",
-    "placeholder": "Insira seu email",
+    "subtitle": "Inscreva-se para receber as melhores estratégias de crescimento",
+    "placeholder": "Insira seu e-mail",
     "button": "Inscrever",
-    "note": "Dicas semanais • Sem spam"
+    "success": "Inscrito!",
+    "successMessage": "Obrigado! Você receberá nossas dicas em breve.",
+    "note": "Dicas semanais • Sem spam • Cancelar a qualquer momento"
+  },
+  "social": {
+    "title": "Conecte-se Conosco",
+    "subtitle": "Siga-nos nas redes sociais",
+    "youtube": "YouTube",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp",
+    "labels": {
+      "follow": "Siga-nos",
+      "connect": "Conectar"
+    }
   },
   "sections": {
     "product": {
       "title": "Produto",
       "links": [
-        { "name": "Recursos", "href": "#" },
-        { "name": "Planos", "href": "#" },
-        { "name": "Demonstração", "href": "#" },
-        { "name": "Atualizações", "href": "#" }
+        { "name": "Recursos", "href": "#features" },
+        { "name": "Planos", "href": "#pricing" },
+        { "name": "Demonstração", "href": "#demo" },
+        { "name": "Atualizações", "href": "#updates" }
       ]
     },
     "company": {
       "title": "Empresa",
       "links": [
-        { "name": "Sobre Nós", "href": "#" },
-        { "name": "Blog", "href": "#" },
-        { "name": "Carreiras", "href": "#" },
-        { "name": "Parceiros", "href": "#" }
+        { "name": "Sobre Nós", "href": "#about" },
+        { "name": "Blog", "href": "#blog" },
+        { "name": "Carreiras", "href": "#careers" },
+        { "name": "Parceiros", "href": "#partners" }
       ]
     },
     "support": {
       "title": "Suporte",
       "links": [
-        { "name": "Ajuda", "href": "#" },
-        { "name": "Contacto", "href": "#" },
-        { "name": "FAQ", "href": "#" },
-        { "name": "Comunidade", "href": "#" }
+        { "name": "Ajuda", "href": "#help" },
+        { "name": "Contacto", "href": "#contact" },
+        { "name": "FAQ", "href": "#faq" },
+        { "name": "Comunidade", "href": "#community" }
       ]
     },
     "legal": {
       "title": "Legal",
       "links": [
-        { "name": "Privacidade", "href": "#" },
-        { "name": "Termos", "href": "#" },
-        { "name": "Cookies", "href": "#" },
-        { "name": "Segurança", "href": "#" }
+        { "name": "Privacidade", "href": "#privacy" },
+        { "name": "Termos", "href": "#terms" },
+        { "name": "Cookies", "href": "#cookies" },
+        { "name": "Segurança", "href": "#security" }
       ]
     }
-  },
-  "social": {
-    "youtube": "YouTube",
-    "instagram": "Instagram",
-    "facebook": "Facebook",
-    "whatsapp": "WhatsApp"
   },
   "copyright": {
     "text": "© {year} NinjaTube • Todos os direitos reservados",
     "notAffiliated": "Não afiliado ao YouTube®",
-    "secure": "Site seguro • Protegido com SSL"
+    "secure": "Site 100% seguro",
+    "version": "Sempre melhorando",
+    "madeWith": "Made with passion",
+    "rights": "Todos os direitos reservados"
+  },
+  "footerLabels": {
+    "coreFeature": "Funcionalidade Principal",
+    "essentialFeature": "Funcionalidade Essencial",
+    "scrollHint": "Deslize para ver mais",
+    "subscribeNow": "Inscreva-se agora",
+    "followUs": "Siga-nos"
   }
 }

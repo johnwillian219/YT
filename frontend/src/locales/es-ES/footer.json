@@ -2,61 +2,80 @@
   "brand": {
     "name": "NinjaTube",
     "tagline": "Herramientas profesionales para creadores",
-    "description": "Herramientas inteligentes que ayudan a creadores de contenido a hacer crecer sus canales de YouTube con estrategias basadas en datos."
+    "description": "Herramientas inteligentes que ayudan a los creadores de contenido a hacer crecer sus canales de YouTube con estrategias basadas en datos."
   },
   "newsletter": {
     "title": "Recibe consejos exclusivos",
-    "placeholder": "Ingresa tu email",
+    "subtitle": "Suscríbete para recibir las mejores estrategias de crecimiento",
+    "placeholder": "Introduce tu correo",
     "button": "Suscribirse",
-    "note": "Consejos semanales • Sin spam"
+    "success": "¡Suscrito!",
+    "successMessage": "¡Gracias! Recibirás nuestros consejos pronto.",
+    "note": "Consejos semanales • Sin spam • Cancela cuando quieras"
+  },
+  "social": {
+    "title": "Conéctate con nosotros",
+    "subtitle": "Síguenos en redes sociales",
+    "youtube": "YouTube",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp",
+    "labels": {
+      "follow": "Síguenos",
+      "connect": "Conectar"
+    }
   },
   "sections": {
     "product": {
       "title": "Producto",
       "links": [
-        { "name": "Características", "href": "#" },
-        { "name": "Planes", "href": "#" },
-        { "name": "Demostración", "href": "#" },
-        { "name": "Actualizaciones", "href": "#" }
+        { "name": "Funciones", "href": "#features" },
+        { "name": "Planes", "href": "#pricing" },
+        { "name": "Demostración", "href": "#demo" },
+        { "name": "Actualizaciones", "href": "#updates" }
       ]
     },
     "company": {
       "title": "Empresa",
       "links": [
-        { "name": "Sobre Nosotros", "href": "#" },
-        { "name": "Blog", "href": "#" },
-        { "name": "Carreras", "href": "#" },
-        { "name": "Socios", "href": "#" }
+        { "name": "Sobre Nosotros", "href": "#about" },
+        { "name": "Blog", "href": "#blog" },
+        { "name": "Carreras", "href": "#careers" },
+        { "name": "Socios", "href": "#partners" }
       ]
     },
     "support": {
       "title": "Soporte",
       "links": [
-        { "name": "Ayuda", "href": "#" },
-        { "name": "Contacto", "href": "#" },
-        { "name": "FAQ", "href": "#" },
-        { "name": "Comunidad", "href": "#" }
+        { "name": "Ayuda", "href": "#help" },
+        { "name": "Contacto", "href": "#contact" },
+        { "name": "FAQ", "href": "#faq" },
+        { "name": "Comunidad", "href": "#community" }
       ]
     },
     "legal": {
       "title": "Legal",
       "links": [
-        { "name": "Privacidad", "href": "#" },
-        { "name": "Términos", "href": "#" },
-        { "name": "Cookies", "href": "#" },
-        { "name": "Seguridad", "href": "#" }
+        { "name": "Privacidad", "href": "#privacy" },
+        { "name": "Términos", "href": "#terms" },
+        { "name": "Cookies", "href": "#cookies" },
+        { "name": "Seguridad", "href": "#security" }
       ]
     }
-  },
-  "social": {
-    "youtube": "YouTube",
-    "instagram": "Instagram",
-    "facebook": "Facebook",
-    "whatsapp": "WhatsApp"
   },
   "copyright": {
     "text": "© {year} NinjaTube • Todos los derechos reservados",
     "notAffiliated": "No afiliado a YouTube®",
-    "secure": "Sitio seguro • Protegido con SSL"
+    "secure": "Sitio 100% seguro",
+    "version": "Siempre mejorando",
+    "madeWith": "Hecho con pasión",
+    "rights": "Todos los derechos reservados"
+  },
+  "footerLabels": {
+    "coreFeature": "Función Principal",
+    "essentialFeature": "Función Esencial",
+    "scrollHint": "Desliza para ver más",
+    "subscribeNow": "Suscríbete ahora",
+    "followUs": "Síguenos"
   }
 }

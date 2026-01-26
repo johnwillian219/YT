@@ -1,3 +1,4 @@
+// frontend/src/app/bootstrap/app-providers.jsx
 import React from "react";
 import { ThemeProvider } from "./theme-provider";
 import I18nProvider from "./i18n-provider";

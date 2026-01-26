@@ -129,7 +129,7 @@ export function I18nProvider({ children }) {
         setIsLoading(false);
       }
     },
-    [locale]
+    [locale],
   );
 
   // Função para carregar traduções
@@ -155,6 +155,7 @@ export function I18nProvider({ children }) {
         "register",
         "forgot-password",
         "reset-password",
+        "common",
       ];
 
       const allTranslations = {};
@@ -168,7 +169,7 @@ export function I18nProvider({ children }) {
           allTranslations[module] = moduleData.default || moduleData;
         } catch (error) {
           console.warn(
-            `⚠️ Módulo ${module} não encontrado para ${targetLocale}`
+            `⚠️ Módulo ${module} não encontrado para ${targetLocale}`,
           );
           allTranslations[module] = {};
         }
@@ -180,7 +181,7 @@ export function I18nProvider({ children }) {
     } catch (error) {
       console.error(
         `❌ Erro ao carregar traduções para ${targetLocale}:`,
-        error
+        error,
       );
       throw error;
     }
@@ -239,7 +240,7 @@ export function I18nProvider({ children }) {
           return Object.keys(params).reduce((str, paramKey) => {
             return str.replace(
               new RegExp(`{{${paramKey}}}`, "g"),
-              params[paramKey]
+              params[paramKey],
             );
           }, value);
         }
@@ -250,7 +251,7 @@ export function I18nProvider({ children }) {
         return key;
       }
     },
-    [translations]
+    [translations],
   );
 
   // Valor do contexto

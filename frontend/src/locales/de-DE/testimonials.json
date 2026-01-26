@@ -47,6 +47,10 @@
     "title": "Bereit, deinen Kanal zu transformieren?",
     "subtitle": "Starte jetzt dein Wachstum",
     "button": "Jetzt starten",
-    "features": ["Keine Verpflichtung", "Einfache Kündigung", "24/7 Support"]
+    "features": ["Keine Verpflichtung", "Einfache Kündigung", "24/7 Support"],
+    "footer": {
+      "noCommitment": "Keine Verpflichtung • Jederzeit kündbar",
+      "featuresCount": "{count}+ enthaltene Vorteile"
+    }
   }
 }

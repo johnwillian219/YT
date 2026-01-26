@@ -31,71 +31,241 @@ const PORT = process.env.PORT || 5000;
 const NODE_ENV = process.env.NODE_ENV || "development";
 
 // ================================
-// MIDDLEWARES - DEBUG VERSION
+// CORS CONFIG - CORRIGIDO PARA MÚLTIPLOS IPS
 // ================================
+
+// Lista de origens permitidas - INCLUA TODOS SEUS IPS AQUI
+const ALLOWED_ORIGINS = [
+  // Localhost (desenvolvimento)
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "http://localhost:8080",
+
+  // Seus IPs específicos - ADICIONE TODOS QUE PRECISA
+  "http://192.168.56.1:5173",
+  "http://192.168.1.135:5173",
+
+  // Para desenvolvimento, permita mais flexibilidade
+  ...(NODE_ENV === "development"
+    ? [
+        /^http:\/\/localhost(:\d+)?$/, // localhost com qualquer porta
+        /^http:\/\/127\.0\.0\.1(:\d+)?$/, // 127.0.0.1 com qualquer porta
+        /^http:\/\/192\.168\.\d+\.\d+(:\d+)?$/, // QUALQUER IP 192.168.x.x
+        /^http:\/\/10\.\d+\.\d+\.\d+(:\d+)?$/, // QUALQUER IP 10.x.x.x
+      ]
+    : []),
+];
+
+console.log("\n🌐 CORS Configurado para as seguintes origens:");
+ALLOWED_ORIGINS.forEach((origin, i) => {
+  console.log(`  ${i + 1}. ${origin}`);
+});
+console.log("");
+
+// Configuração CORS completa
 app.use(
   cors({
-    origin: authConfig.cors.origin,
-    credentials: true,
+    origin: function (origin, callback) {
+      // Log da origem recebida
+      const originLog = origin || "Sem origem (curl/postman/app)";
+      console.log(`🔍 CORS Check: ${originLog}`);
+
+      // 1. Permitir requests sem origem (curl, postman, mobile apps, etc)
+      if (!origin) {
+        console.log("✅ Permitindo request sem origem");
+        return callback(null, true);
+      }
+
+      // 2. Verificar se a origem está na lista de permitidas
+      const isAllowed = ALLOWED_ORIGINS.some((allowedOrigin) => {
+        if (typeof allowedOrigin === "string") {
+          return allowedOrigin === origin;
+        } else if (allowedOrigin instanceof RegExp) {
+          const matches = allowedOrigin.test(origin);
+          if (matches) {
+            console.log(`✅ Match regex: ${allowedOrigin} → ${origin}`);
+          }
+          return matches;
+        }
+        return false;
+      });
+
+      if (isAllowed) {
+        console.log(`✅ CORS PERMITIDO para: ${origin}`);
+        return callback(null, true);
+      }
+
+      // 3. Origem não permitida
+      console.log(`❌ CORS BLOQUEADO para: ${origin}`);
+      console.log(`📋 Origens permitidas:`, ALLOWED_ORIGINS);
+
+      const error = new Error(`Origem "${origin}" não permitida por CORS`);
+      error.status = 403;
+      return callback(error);
+    },
+    credentials: true, // IMPORTANTE: Permite cookies/headers de auth
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "X-Requested-With",
+      "Accept",
+      "Origin",
+      "X-CSRF-Token",
+      "X-Auth-Token",
+      "X-Refresh-Token",
+    ],
+    exposedHeaders: ["Authorization", "Set-Cookie", "X-Refresh-Token"],
+    maxAge: 86400, // 24 horas para cache de preflight
   }),
 );
 
+// Headers CORS adicionais (para alguns navegadores)
+app.use((req, res, next) => {
+  const origin = req.headers.origin;
+
+  // Se a origem está na lista de permitidas, use-a
+  if (origin) {
+    const isAllowed = ALLOWED_ORIGINS.some((allowedOrigin) => {
+      if (typeof allowedOrigin === "string") return allowedOrigin === origin;
+      if (allowedOrigin instanceof RegExp) return allowedOrigin.test(origin);
+      return false;
+    });
+
+    if (isAllowed) {
+      res.header("Access-Control-Allow-Origin", origin);
+    }
+  }
+
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD",
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-CSRF-Token, X-Refresh-Token",
+  );
+  res.header("Access-Control-Expose-Headers", "Authorization, X-Refresh-Token");
+
+  // Handle preflight requests (OPTIONS)
+  if (req.method === "OPTIONS") {
+    console.log("🔄 Preflight request recebida de:", req.headers.origin);
+    console.log(
+      "📋 Headers solicitados:",
+      req.headers["access-control-request-headers"],
+    );
+    return res.status(200).end();
+  }
+
+  next();
+});
+
+// ================================
+// SEGURANÇA
+// ================================
 app.use(
   helmet({
     contentSecurityPolicy: NODE_ENV === "production",
     crossOriginEmbedderPolicy: NODE_ENV === "production",
-    hsts: NODE_ENV === "production",
+    crossOriginResourcePolicy: {
+      policy: NODE_ENV === "production" ? "same-origin" : "cross-origin",
+    },
+    crossOriginOpenerPolicy: { policy: "same-origin-allow-popups" },
+    hsts:
+      NODE_ENV === "production"
+        ? {
+            maxAge: 31536000,
+            includeSubDomains: true,
+            preload: true,
+          }
+        : false,
+    referrerPolicy: { policy: "strict-origin-when-cross-origin" },
   }),
 );
 
+// ================================
+// LOGGING & PARSING
+// ================================
 app.use(morgan(NODE_ENV === "development" ? "dev" : "combined"));
 
-app.use(express.json({ limit: "10mb" }));
-app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+app.use(
+  express.json({
+    limit: "10mb",
+    verify: (req, res, buf) => {
+      req.rawBody = buf.toString();
+    },
+  }),
+);
 
+app.use(
+  express.urlencoded({
+    extended: true,
+    limit: "10mb",
+  }),
+);
+
+// Servir arquivos estáticos
 app.use("/public", express.static(join(__dirname, "../public")));
 
 // ================================
-// REQUEST LOGGER - ENHANCED FOR DEBUG
+// REQUEST LOGGER - MELHORADO
 // ================================
 app.use((req, res, next) => {
   const start = Date.now();
+  const requestId =
+    Date.now().toString(36) + Math.random().toString(36).substr(2);
 
-  // Log da requisição com body
-  console.log(`\n📨 ${req.method} ${req.originalUrl}`);
+  // Log detalhado da requisição
+  console.log(`\n══════════════════════════════════════════════════`);
+  console.log(`📨 REQUEST [${requestId}] ${req.method} ${req.originalUrl}`);
+  console.log(`🌐 Origin: ${req.headers.origin || "Nenhum"}`);
+  console.log(`🏠 Host: ${req.headers.host}`);
+  console.log(
+    `📱 User-Agent: ${req.headers["user-agent"]?.substring(0, 80)}...`,
+  );
+  console.log(
+    `🔐 Authorization: ${req.headers.authorization ? "Presente" : "Ausente"}`,
+  );
 
+  // Log do corpo (se não for muito grande)
   if (req.body && Object.keys(req.body).length > 0) {
-    console.log("📦 Body:", JSON.stringify(req.body, null, 2));
+    const bodyStr = JSON.stringify(req.body);
+    if (bodyStr.length < 1000) {
+      console.log("📦 Body:", bodyStr);
+    } else {
+      console.log("📦 Body (truncado):", bodyStr.substring(0, 500) + "...");
+    }
   }
 
-  if (req.headers.authorization) {
-    console.log("🔑 Auth header present");
-  }
-
+  // Interceptar resposta para logging
   const originalSend = res.send;
   res.send = function (body) {
     const duration = Date.now() - start;
     const statusCode = res.statusCode;
 
     console.log(
-      `📤 ${req.method} ${req.originalUrl} - ${statusCode} (${duration}ms)`,
+      `\n📤 RESPONSE [${requestId}] ${req.method} ${req.originalUrl}`,
     );
+    console.log(`⏱️  Duração: ${duration}ms`);
+    console.log(`📊 Status: ${statusCode}`);
 
     if (statusCode >= 400) {
-      console.log(
-        "❌ Error Response:",
-        typeof body === "string" ? body : JSON.stringify(body, null, 2),
-      );
+      console.log("❌ ERROR Response:");
+      try {
+        const errorData = typeof body === "string" ? JSON.parse(body) : body;
+        console.log(JSON.stringify(errorData, null, 2));
+      } catch {
+        console.log(body?.substring?.(0, 500) || body);
+      }
     } else if (statusCode >= 200 && statusCode < 300) {
-      console.log(
-        "✅ Success Response (first 500 chars):",
-        typeof body === "string"
-          ? body.substring(0, 500)
-          : JSON.stringify(body).substring(0, 500),
-      );
+      console.log("✅ SUCCESS Response");
+      if (typeof body === "string" && body.includes("accessToken")) {
+        console.log("🔑 Token JWT presente na resposta");
+      }
     }
+
+    console.log(`══════════════════════════════════════════════════\n`);
 
     originalSend.call(this, body);
   };
@@ -104,11 +274,15 @@ app.use((req, res, next) => {
 });
 
 // ================================
-// HEALTH CHECK WITH DETAILS
+// HEALTH CHECK - MELHORADO
 // ================================
 app.get("/health", async (req, res) => {
   try {
     console.log("🩺 Health check request received");
+    console.log(`🌐 Origin: ${req.headers.origin || "Nenhum"}`);
+    console.log(
+      `👤 User-Agent: ${req.headers["user-agent"]?.substring(0, 50)}...`,
+    );
 
     const [dbStatus, memoryUsage] = await Promise.all([
       checkDatabaseConnection(),
@@ -121,35 +295,48 @@ app.get("/health", async (req, res) => {
 
     console.log(`🏥 Health status: ${healthStatus} (${statusCode})`);
 
-    res.status(statusCode).json({
+    const response = {
       status: healthStatus,
       timestamp: new Date().toISOString(),
       environment: NODE_ENV,
       uptime: process.uptime(),
-      system: {
+      server: {
         nodeVersion: process.version,
         platform: process.platform,
+        pid: process.pid,
         memory: {
           rss: `${Math.round(memoryUsage.rss / 1024 / 1024)}MB`,
           heapUsed: `${Math.round(memoryUsage.heapUsed / 1024 / 1024)}MB`,
           heapTotal: `${Math.round(memoryUsage.heapTotal / 1024 / 1024)}MB`,
         },
       },
+      cors: {
+        allowedOrigins: ALLOWED_ORIGINS.map((o) => o.toString()),
+        currentOrigin: req.headers.origin,
+        credentialsAllowed: true,
+      },
       dependencies: {
         database: dbStatus,
       },
       config: {
         port: PORT,
-        corsOrigin: authConfig.cors.origin,
+        nodeEnv: NODE_ENV,
         jwtConfigured: !!authConfig.jwt.secret,
+        corsOriginsCount: ALLOWED_ORIGINS.length,
       },
-    });
+    };
+
+    res.status(statusCode).json(response);
   } catch (error) {
     console.error("💥 Health check failed:", error);
     res.status(503).json({
       status: "unhealthy",
       error: error.message,
       timestamp: new Date().toISOString(),
+      corsInfo: {
+        allowedOrigins: ALLOWED_ORIGINS.map((o) => o.toString()),
+        yourOrigin: req.headers.origin,
+      },
     });
   }
 });
@@ -164,13 +351,19 @@ apiRouter.get("/", (req, res) => {
   res.json({
     message: "YouTube Analytics API v1",
     version: "1.0.0",
+    environment: NODE_ENV,
     endpoints: {
       auth: "/api/v1/auth",
       youtube: "/api/v1/youtube",
       analytics: "/api/v1/analytics",
       billing: "/api/v1/billing",
     },
-    documentation: "https://docs.ninjatube.com",
+    cors: {
+      note: "CORS configurado para múltiplas origens",
+      credentials: true,
+      yourOrigin: req.headers.origin,
+    },
+    timestamp: new Date().toISOString(),
   });
 });
 
@@ -232,10 +425,29 @@ apiRouter.get("/billing/plans", (req, res) => {
 app.use("/api/v1", apiRouter);
 
 // ================================
-// 404 HANDLER
+// TEST ENDPOINT (para verificar CORS)
+// ================================
+app.get("/test-cors", (req, res) => {
+  console.log("🧪 Test CORS endpoint chamado");
+  console.log(`🌐 Origin: ${req.headers.origin}`);
+
+  res.json({
+    success: true,
+    message: "CORS test endpoint",
+    yourOrigin: req.headers.origin,
+    corsConfigured: true,
+    allowedOrigins: ALLOWED_ORIGINS.map((o) => o.toString()),
+    timestamp: new Date().toISOString(),
+  });
+});
+
+// ================================
+// 404 HANDLER - MELHORADO
 // ================================
 app.use("*", (req, res) => {
   console.log(`🔍 404 Not Found: ${req.method} ${req.originalUrl}`);
+  console.log(`🌐 Origin: ${req.headers.origin || "Nenhum"}`);
+
   res.status(404).json({
     error: "Endpoint not found",
     path: req.originalUrl,
@@ -246,44 +458,60 @@ app.use("*", (req, res) => {
       "POST /api/v1/auth/register",
       "POST /api/v1/auth/login",
       "GET /health",
+      "GET /test-cors",
     ],
+    corsInfo: {
+      allowedOrigins: ALLOWED_ORIGINS.map((o) => o.toString()),
+      yourOrigin: req.headers.origin,
+      note: "Se estiver recebendo erro CORS, verifique se sua origem está na lista acima",
+    },
   });
 });
 
 // ================================
-// ERROR HANDLER - ENHANCED
+// ERROR HANDLER - MELHORADO
 // ================================
 app.use((err, req, res, next) => {
-  console.error("🚨 Unhandled Error:", {
-    message: err.message,
-    stack: err.stack,
-    code: err.code,
-    statusCode: err.statusCode || 500,
-    path: req.originalUrl,
-    method: req.method,
-  });
+  console.error("\n🚨 UNHANDLED ERROR =======================================");
+  console.error("Message:", err.message);
+  console.error("Status:", err.status || err.statusCode || 500);
+  console.error("Path:", req.originalUrl);
+  console.error("Method:", req.method);
+  console.error("Origin:", req.headers.origin);
+  console.error("Stack:", err.stack);
+  console.error("=========================================================\n");
 
-  // Determine status code
-  const statusCode = err.statusCode || 500;
+  // Status code
+  const statusCode = err.status || err.statusCode || 500;
 
-  // Prepare error response
+  // Response base
   const errorResponse = {
     error: err.message || "Internal server error",
     timestamp: new Date().toISOString(),
     path: req.originalUrl,
+    method: req.method,
   };
 
-  // Add validation errors if present
+  // CORS errors
+  if (err.message.includes("CORS") || err.message.includes("Origin")) {
+    errorResponse.corsError = true;
+    errorResponse.allowedOrigins = ALLOWED_ORIGINS.map((o) => o.toString());
+    errorResponse.yourOrigin = req.headers.origin;
+    errorResponse.suggestion =
+      "Adicione sua origem à lista ALLOWED_ORIGINS no server.js";
+  }
+
+  // Validation errors
   if (err.errors) {
     errorResponse.validationErrors = err.errors;
   }
 
-  // Add error code if present
+  // Error code
   if (err.code) {
     errorResponse.code = err.code;
   }
 
-  // Don't expose stack trace in production
+  // Stack trace apenas em desenvolvimento
   if (NODE_ENV === "development") {
     errorResponse.stack = err.stack;
   }
@@ -321,29 +549,48 @@ process.on("SIGTERM", gracefulShutdown);
 
 // Handle uncaught exceptions
 process.on("uncaughtException", (error) => {
-  console.error("💥 Uncaught Exception:", error);
+  console.error("\n💥 UNCAUGHT EXCEPTION ====================================");
+  console.error("Error:", error.message);
+  console.error("Stack:", error.stack);
+  console.error("=========================================================\n");
   process.exit(1);
 });
 
 process.on("unhandledRejection", (reason, promise) => {
-  console.error("💥 Unhandled Rejection at:", promise, "reason:", reason);
+  console.error("\n💥 UNHANDLED REJECTION ===================================");
+  console.error("Promise:", promise);
+  console.error("Reason:", reason);
+  console.error("=========================================================\n");
 });
 
 // ================================
 // START SERVER
 // ================================
-const server = app.listen(PORT, async () => {
+const server = app.listen(PORT, "0.0.0.0", async () => {
   console.log(`
-🎉 NinjaTube Backend Started!
-=========================
+🎉 NINJATUBE BACKEND STARTED!
+══════════════════════════════════════════════════
 🌍 Environment: ${NODE_ENV}
-🚀 Server: http://localhost:${PORT}
-🔗 API: http://localhost:${PORT}/api/v1
-🩺 Health: http://localhost:${PORT}/health
-🗄️  Database: ${process.env.DATABASE_URL ? "Neon PostgreSQL" : "❌ Not configured"}
+🚀 Server URL: http://localhost:${PORT}
+🔗 API Base: http://localhost:${PORT}/api/v1
+🩺 Health Check: http://localhost:${PORT}/health
+🧪 CORS Test: http://localhost:${PORT}/test-cors
+🗄️  Database: ${process.env.DATABASE_URL ? "✅ Neon PostgreSQL" : "❌ Not configured"}
 🔐 JWT: ${authConfig.jwt.secret ? "✅ Configured" : "❌ Missing"}
-=========================
+🌐 CORS: ✅ Configurado para ${ALLOWED_ORIGINS.length} origens
+══════════════════════════════════════════════════
 `);
+
+  console.log("\n🌐 ORIGENS CORS PERMITIDAS:");
+  ALLOWED_ORIGINS.forEach((origin, index) => {
+    console.log(`  ${index + 1}. ${origin}`);
+  });
+  console.log("\n📱 IPS DA SUA REDE:");
+  console.log("  • http://localhost:5173");
+  console.log("  • http://192.168.56.1:5173");
+  console.log("  • http://192.168.1.135:5173");
+  console.log("\n🔧 DICA: Acesse http://SEU-IP:5173 para testar");
+  console.log("══════════════════════════════════════════════════\n");
 
   // Test database connection on startup
   try {

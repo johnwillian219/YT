@@ -2,61 +2,34 @@
   "brand": {
     "name": "NinjaTube",
     "tagline": "Professionelle Tools für Creator",
-    "description": "Intelligente Tools, die Content Creator dabei unterstützen, ihre YouTube-Kanäle mit datenbasierten Strategien zu skalieren."
+    "description": "Intelligente Tools, die Content-Erstellern helfen, ihre YouTube-Kanäle mit datenbasierten Strategien zu vergrößern."
   },
   "newsletter": {
     "title": "Exklusive Tipps erhalten",
-    "placeholder": "E-Mail-Adresse eingeben",
+    "subtitle": "Abonniere die besten Wachstumsstrategien",
+    "placeholder": "E-Mail eingeben",
     "button": "Abonnieren",
-    "note": "Wöchentliche Tipps • Kein Spam"
-  },
-  "sections": {
-    "product": {
-      "title": "Produkt",
-      "links": [
-        { "name": "Funktionen", "href": "#" },
-        { "name": "Preise", "href": "#" },
-        { "name": "Demo", "href": "#" },
-        { "name": "Updates", "href": "#" }
-      ]
-    },
-    "company": {
-      "title": "Unternehmen",
-      "links": [
-        { "name": "Über uns", "href": "#" },
-        { "name": "Blog", "href": "#" },
-        { "name": "Karriere", "href": "#" },
-        { "name": "Partner", "href": "#" }
-      ]
-    },
-    "support": {
-      "title": "Support",
-      "links": [
-        { "name": "Hilfe", "href": "#" },
-        { "name": "Kontakt", "href": "#" },
-        { "name": "FAQ", "href": "#" },
-        { "name": "Community", "href": "#" }
-      ]
-    },
-    "legal": {
-      "title": "Rechtliches",
-      "links": [
-        { "name": "Datenschutz", "href": "#" },
-        { "name": "Nutzungsbedingungen", "href": "#" },
-        { "name": "Cookies", "href": "#" },
-        { "name": "Sicherheit", "href": "#" }
-      ]
-    }
+    "success": "Abonniert!",
+    "successMessage": "Danke! Du erhältst unsere Tipps bald.",
+    "note": "Wöchentliche Tipps • Kein Spam • Jederzeit kündbar"
   },
   "social": {
+    "title": "Verbinde dich mit uns",
+    "subtitle": "Folge uns in sozialen Netzwerken",
     "youtube": "YouTube",
     "instagram": "Instagram",
     "facebook": "Facebook",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "labels": {
+      "follow": "Folge uns",
+      "connect": "Verbinden"
+    }
   },
-  "copyright": {
-    "text": "© {year} NinjaTube • Alle Rechte vorbehalten",
-    "notAffiliated": "Nicht mit YouTube® verbunden",
-    "secure": "Sichere Website • SSL-geschützt"
+  "footerLabels": {
+    "coreFeature": "Kernfunktion",
+    "essentialFeature": "Wesentliche Funktion",
+    "scrollHint": "Scrollen für mehr",
+    "subscribeNow": "Jetzt abonnieren",
+    "followUs": "Folge uns"
   }
 }

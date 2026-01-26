@@ -3,7 +3,7 @@
     "slogan": "Maîtrisez YouTube comme un Ninja"
   },
   "navigation": {
-    "features": "Fonctionnalités",
+    "features": "Fonctions",
     "pricing": "Tarifs",
     "blog": "Blog",
     "help": "Aide"
@@ -50,7 +50,7 @@
   },
   "buttons": {
     "login": "Connexion",
-    "startFree": "Commencer Gratuitement"
+    "startFree": "Commencer"
   },
   "aria": {
     "openMenu": "Ouvrir le menu",

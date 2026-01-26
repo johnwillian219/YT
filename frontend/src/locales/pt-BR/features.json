@@ -49,9 +49,12 @@
       "title": "Relatórios Detalhados",
       "shortTitle": "Relatórios",
       "description": "Relatórios automáticos com insights acionáveis"
+    },
+    "communityInsights": {
+      "title": "Insights da Comunidade",
+      "shortTitle": "Comunidade",
+      "description": "Acompanhe engajamento e feedbacks dos seus seguidores",
+      "mobileOnly": true
     }
-  },
-  "cta": {
-    "learnMore": "Saiba mais"
   }
 }
