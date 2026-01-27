@@ -1,4 +1,9 @@
 {
+  "loadingNinjaTube": "Carregando NinjaTube...",
+  "login": "Login",
+  "register": "Registrar",
+  "dashboard": "Dashboard",
+  "help": "Ajuda",
   "notFound": {
     "title": "Ops! Página Não Encontrada",
     "description": "A página que você está procurando não existe ou foi movida.",

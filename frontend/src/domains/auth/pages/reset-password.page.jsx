@@ -1,52 +1,45 @@
 // frontend/src/domains/auth/pages/reset-password.page.jsx
-import React from "react";
-import { AnimatedBackground } from "./background";
-import { useTheme } from "../../../app/bootstrap/theme-provider";
+import React, { useEffect } from "react";
 import { useI18n } from "../../../app/bootstrap/i18n-provider";
-import ResetPasswordForm from "../ui/reset-password-form/ResetPasswordForm";
 import AuthLayout from "../ui/auth-layout/AuthLayout";
+import ResetPasswordForm from "../ui/reset-password-form/ResetPasswordForm";
 
 export default function ResetPasswordPage() {
-  const { theme } = useTheme();
-  const { t } = useI18n();
+  const { t, locale, isLoading: i18nLoading, translations } = useI18n();
 
-  // Função auxiliar para traduções
+  useEffect(() => {
+    console.log("🔍 DEBUG ResetPasswordPage:");
+    console.log("🌐 Idioma atual:", locale);
+    console.log("🔄 Carregando i18n?:", i18nLoading);
+    console.log("📚 Traduções carregadas:", Object.keys(translations));
+    console.log(
+      "📖 Módulo reset-password existe?:",
+      !!translations["reset-password"],
+    );
+  }, [locale, i18nLoading, translations]);
+
   const translate = (key) => t(key, "reset-password");
 
   const handleSuccess = () => {
-    console.log("Senha redefinida com sucesso!");
-    // Você pode mostrar um toast ou notificação aqui
+    console.log("✅ Senha redefinida com sucesso!");
   };
 
   const handleError = (error) => {
-    console.error("Reset password error:", error);
-    // Você pode mostrar um toast ou notificação aqui
+    console.error("❌ Reset password error:", error);
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <AnimatedBackground />
-
-      {theme === "cyberpunk" && (
-        <>
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyberpunk-pink-30 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyberpunk-blue-30 rounded-full blur-3xl animate-pulse delay-1000" />
-        </>
-      )}
-
-      <div className="relative w-full max-w-md z-20">
-        <AuthLayout
-          title={translate("title")}
-          subtitle={translate("subtitle")}
-          showDecoration={true}
-        >
-          <ResetPasswordForm
-            onSuccess={handleSuccess}
-            onError={handleError}
-            showBackLink={true}
-          />
-        </AuthLayout>
-      </div>
-    </div>
+    <AuthLayout
+      title={translate("title")}
+      subtitle={translate("subtitle")}
+      type="reset-password"
+      showBackLink={false}
+    >
+      <ResetPasswordForm
+        onSuccess={handleSuccess}
+        onError={handleError}
+        showBackLink={false}
+      />
+    </AuthLayout>
   );
 }

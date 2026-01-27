@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 // Mapeamento de idiomas suportados
 const SUPPORTED_LOCALES = {
@@ -143,8 +143,6 @@ export function I18nProvider({ children }) {
 
     try {
       const modulesToLoad = [
-        "common",
-        "auth",
         "landingheader",
         "herosection",
         "features",

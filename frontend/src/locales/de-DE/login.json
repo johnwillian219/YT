@@ -1,20 +1,51 @@
 {
-  "title": "Willkommen zurück",
-  "subtitle": "Greifen Sie auf Ihr Analyse-Dashboard zu",
+  "title": "Greifen Sie auf Ihr Konto zu",
+  "subtitle": "Melden Sie sich mit Google oder E-Mail an",
+  "slogan": "Beherrsche YouTube wie ein Ninja",
+  "stats": {
+    "views": {
+      "value": "2.5M+",
+      "label": "Aufrufe"
+    },
+    "channels": {
+      "value": "50K+",
+      "label": "Kanäle"
+    },
+    "growth": {
+      "value": "300%",
+      "label": "Wachstum"
+    }
+  },
   "form": {
     "email": {
-      "label": "E-Mail-Adresse",
-      "placeholder": "E-Mail-Adresse eingeben"
+      "label": "E-Mail",
+      "placeholder": "Geben Sie Ihre E-Mail ein",
+      "errors": {
+        "required": "E-Mail ist erforderlich",
+        "invalid": "Ungültige E-Mail"
+      }
     },
     "password": {
       "label": "Passwort",
-      "placeholder": "Passwort eingeben",
-      "forgot": "Passwort vergessen?"
+      "placeholder": "Geben Sie Ihr Passwort ein",
+      "forgot": "Passwort vergessen?",
+      "errors": {
+        "required": "Passwort ist erforderlich",
+        "minLength": "Passwort muss mindestens 6 Zeichen haben"
+      }
     },
     "remember": "30 Tage angemeldet bleiben",
-    "submit": "JETZT ANMELDEN",
+    "submit": "ANMELDEN",
+    "submit_loading": "Anmeldung...",
     "divider": "Oder fortfahren mit",
-    "google": "Mit Google fortfahren"
+    "providers": {
+      "google": "Mit Google fortfahren"
+    }
+  },
+  "errors": {
+    "invalid_credentials": "E-Mail oder Passwort falsch",
+    "generic": "Anmeldefehler. Bitte erneut versuchen.",
+    "network": "Verbindungsfehler. Internet prüfen."
   },
   "register": {
     "text": "Noch kein Konto?",

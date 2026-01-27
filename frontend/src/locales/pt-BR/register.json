@@ -1,25 +1,68 @@
 {
-  "title": "Criar Conta",
-  "subtitle": "Comece sua jornada no YouTube",
+  "title": "Crie sua conta",
+  "subtitle": "Cadastre-se com Google ou email",
+  "slogan": "Transforme seu canal em um império digital",
+  "stats": {
+    "views": {
+      "value": "2.5M+",
+      "label": "Views"
+    },
+    "channels": {
+      "value": "50K+",
+      "label": "Canais"
+    },
+    "growth": {
+      "value": "300%",
+      "label": "Crescimento"
+    }
+  },
   "form": {
     "email": {
       "label": "Email",
-      "placeholder": "Insira seu email"
+      "placeholder": "Insira seu email",
+      "errors": {
+        "required": "Email é obrigatório",
+        "invalid": "Email inválido"
+      }
     },
     "password": {
       "label": "Senha",
-      "placeholder": "Insira sua senha"
+      "placeholder": "Insira sua senha ",
+      "errors": {
+        "required": "Senha é obrigatória",
+        "minLength": "Senha deve ter no mínimo 6 caracteres"
+      }
     },
     "confirmPassword": {
-      "label": "Confirmar Senha",
-      "placeholder": "Confirme sua senha"
+      "label": "Confirmar senha",
+      "placeholder": "Confirme sua senha",
+      "errors": {
+        "required": "Confirme sua senha",
+        "mismatch": "As senhas não coincidem"
+      }
     },
     "terms": {
       "label": "Aceito os {termsLink} e {privacyLink}",
-      "terms": "Termos",
-      "privacy": "Privacidade"
+      "accept": "Aceito os",
+      "and": "e",
+      "terms": "Termos de Uso",
+      "privacy": "Política de Privacidade",
+      "errors": {
+        "required": "Você deve aceitar os termos"
+      }
     },
-    "submit": "CRIAR CONTA"
+    "submit": "Criar conta",
+    "submit_loading": "Criando conta...",
+    "divider": "Ou",
+    "providers": {
+      "google": "Cadastrar com Google"
+    }
+  },
+  "errors": {
+    "email_exists": "Email já cadastrado",
+    "weak_password": "Senha muito fraca",
+    "generic": "Erro ao criar conta. Tente novamente.",
+    "network": "Erro de conexão. Verifique sua internet."
   },
   "login": {
     "text": "Já tem uma conta?",

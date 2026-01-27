@@ -1,20 +1,51 @@
 {
-  "title": "Bienvenido de nuevo",
-  "subtitle": "Accede a tu panel de análisis",
+  "title": "Accede a tu cuenta",
+  "subtitle": "Inicia sesión con Google o email",
+  "slogan": "Domina YouTube como un Ninja",
+  "stats": {
+    "views": {
+      "value": "2.5M+",
+      "label": "Vistas"
+    },
+    "channels": {
+      "value": "50K+",
+      "label": "Canales"
+    },
+    "growth": {
+      "value": "300%",
+      "label": "Crecimiento"
+    }
+  },
   "form": {
     "email": {
       "label": "Email",
-      "placeholder": "Ingresa tu email"
+      "placeholder": "Introduce tu email",
+      "errors": {
+        "required": "El email es obligatorio",
+        "invalid": "Email inválido"
+      }
     },
     "password": {
       "label": "Contraseña",
-      "placeholder": "Ingresa tu contraseña",
-      "forgot": "¿Olvidaste tu contraseña?"
+      "placeholder": "Introduce tu contraseña",
+      "forgot": "¿Olvidaste la contraseña?",
+      "errors": {
+        "required": "La contraseña es obligatoria",
+        "minLength": "La contraseña debe tener al menos 6 caracteres"
+      }
     },
     "remember": "Recordarme por 30 días",
-    "submit": "INICIAR SESIÓN AHORA",
-    "divider": "O continuar con",
-    "google": "Continuar con Google"
+    "submit": "ENTRAR",
+    "submit_loading": "Entrando...",
+    "divider": "O continúa con",
+    "providers": {
+      "google": "Continuar con Google"
+    }
+  },
+  "errors": {
+    "invalid_credentials": "Email o contraseña incorrectos",
+    "generic": "Error al iniciar sesión. Inténtalo de nuevo.",
+    "network": "Error de conexión. Verifica tu internet."
   },
   "register": {
     "text": "¿No tienes una cuenta?",

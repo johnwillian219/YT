@@ -1,20 +1,51 @@
 {
-  "title": "Welcome back",
-  "subtitle": "Access your analytics dashboard",
+  "title": "Access your account",
+  "subtitle": "Sign in with Google or email",
+  "slogan": "Master YouTube like a Ninja",
+  "stats": {
+    "views": {
+      "value": "2.5M+",
+      "label": "Views"
+    },
+    "channels": {
+      "value": "50K+",
+      "label": "Channels"
+    },
+    "growth": {
+      "value": "300%",
+      "label": "Growth"
+    }
+  },
   "form": {
     "email": {
       "label": "Email",
-      "placeholder": "Enter your email"
+      "placeholder": "Enter your email",
+      "errors": {
+        "required": "Email is required",
+        "invalid": "Invalid email"
+      }
     },
     "password": {
       "label": "Password",
       "placeholder": "Enter your password",
-      "forgot": "Forgot password?"
+      "forgot": "Forgot your password?",
+      "errors": {
+        "required": "Password is required",
+        "minLength": "Password must be at least 6 characters"
+      }
     },
     "remember": "Remember me for 30 days",
-    "submit": "LOGIN NOW",
+    "submit": "SIGN IN",
+    "submit_loading": "Signing in...",
     "divider": "Or continue with",
-    "google": "Continue with Google"
+    "providers": {
+      "google": "Continue with Google"
+    }
+  },
+  "errors": {
+    "invalid_credentials": "Incorrect email or password",
+    "generic": "Login error. Please try again.",
+    "network": "Connection error. Check your internet."
   },
   "register": {
     "text": "Don't have an account?",

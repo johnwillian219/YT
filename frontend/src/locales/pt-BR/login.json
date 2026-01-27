@@ -1,20 +1,51 @@
 {
-  "title": "Bem-vindo de volta",
-  "subtitle": "Acesse seu painel de análises",
+  "title": "Acesse sua conta",
+  "subtitle": "Entre com Google ou email",
+  "slogan": "Domine o YouTube como Ninja",
+  "stats": {
+    "views": {
+      "value": "2.5M+",
+      "label": "Views"
+    },
+    "channels": {
+      "value": "50K+",
+      "label": "Canais"
+    },
+    "growth": {
+      "value": "300%",
+      "label": "Crescimento"
+    }
+  },
   "form": {
     "email": {
       "label": "Email",
-      "placeholder": "Insira seu email"
+      "placeholder": "Insira seu email",
+      "errors": {
+        "required": "Email é obrigatório",
+        "invalid": "Email inválido"
+      }
     },
     "password": {
       "label": "Senha",
       "placeholder": "Insira sua senha",
-      "forgot": "Esqueceu a senha?"
+      "forgot": "Esqueceu a senha?",
+      "errors": {
+        "required": "Senha é obrigatória",
+        "minLength": "Senha deve ter no mínimo 6 caracteres"
+      }
     },
     "remember": "Lembrar-me por 30 dias",
-    "submit": "ENTRAR AGORA",
+    "submit": "ENTRAR",
+    "submit_loading": "Entrando...",
     "divider": "Ou continue com",
-    "google": "Continuar com Google"
+    "providers": {
+      "google": "Continuar com Google"
+    }
+  },
+  "errors": {
+    "invalid_credentials": "Email ou senha incorretos",
+    "generic": "Erro ao fazer login. Tente novamente.",
+    "network": "Erro de conexão. Verifique sua internet."
   },
   "register": {
     "text": "Não tem uma conta?",

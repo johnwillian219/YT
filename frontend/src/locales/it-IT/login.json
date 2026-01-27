@@ -1,20 +1,51 @@
 {
-  "title": "Bentornato",
-  "subtitle": "Accedi alla tua dashboard di analisi",
+  "title": "Accedi al tuo account",
+  "subtitle": "Accedi con Google o email",
+  "slogan": "Domina YouTube come un Ninja",
+  "stats": {
+    "views": {
+      "value": "2.5M+",
+      "label": "Visualizzazioni"
+    },
+    "channels": {
+      "value": "50K+",
+      "label": "Canali"
+    },
+    "growth": {
+      "value": "300%",
+      "label": "Crescita"
+    }
+  },
   "form": {
     "email": {
       "label": "Email",
-      "placeholder": "Inserisci la tua email"
+      "placeholder": "Inserisci la tua email",
+      "errors": {
+        "required": "L'email è obbligatoria",
+        "invalid": "Email non valida"
+      }
     },
     "password": {
       "label": "Password",
       "placeholder": "Inserisci la tua password",
-      "forgot": "Hai dimenticato la password?"
+      "forgot": "Password dimenticata?",
+      "errors": {
+        "required": "La password è obbligatoria",
+        "minLength": "La password deve avere almeno 6 caratteri"
+      }
     },
     "remember": "Ricordami per 30 giorni",
-    "submit": "ACCEDI ORA",
+    "submit": "ACCEDI",
+    "submit_loading": "Accesso...",
     "divider": "Oppure continua con",
-    "google": "Continua con Google"
+    "providers": {
+      "google": "Continua con Google"
+    }
+  },
+  "errors": {
+    "invalid_credentials": "Email o password non corretti",
+    "generic": "Errore di accesso. Riprova.",
+    "network": "Errore di connessione. Controlla internet."
   },
   "register": {
     "text": "Non hai un account?",

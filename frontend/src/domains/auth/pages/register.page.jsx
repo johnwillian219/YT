@@ -1,16 +1,25 @@
 // frontend/src/domains/auth/pages/register.page.jsx
-import React from "react";
-import { AnimatedBackground } from "./background";
-import { useTheme } from "../../../app/bootstrap/theme-provider";
+import React, { useEffect } from "react";
 import { useI18n } from "../../../app/bootstrap/i18n-provider";
-import RegisterForm from "../ui/register-form/RegisterForm";
 import AuthLayout from "../ui/auth-layout/AuthLayout";
+import RegisterForm from "../ui/register-form/RegisterForm";
 
 export default function RegisterPage() {
-  const { theme } = useTheme();
-  const { t } = useI18n();
+  const { t, locale, isLoading: i18nLoading, translations } = useI18n();
 
-  // Função auxiliar para traduções
+  // Debug para verificar traduções
+  useEffect(() => {
+    console.log("🔍 DEBUG RegisterPage:");
+    console.log("🌐 Idioma atual:", locale);
+    console.log("🔄 Carregando i18n?:", i18nLoading);
+    console.log("📚 Traduções carregadas:", Object.keys(translations));
+    console.log("📖 Módulo register existe?:", !!translations.register);
+    if (translations.register) {
+      console.log("📝 Conteúdo do register:", translations.register);
+    }
+  }, [locale, i18nLoading, translations]);
+
+  // Usar a mesma lógica do login
   const translate = (key) => t(key, "register");
 
   const handleRegisterSuccess = () => {
@@ -20,34 +29,21 @@ export default function RegisterPage() {
 
   const handleRegisterError = (error) => {
     console.error("Registration error:", error);
-    // Você pode mostrar um toast ou notificação aqui
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <AnimatedBackground />
-
-      {theme === "cyberpunk" && (
-        <>
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyberpunk-pink-30 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyberpunk-blue-30 rounded-full blur-3xl animate-pulse delay-1000" />
-        </>
-      )}
-
-      <div className="relative w-full max-w-md z-20">
-        <AuthLayout
-          title={translate("title")}
-          subtitle={translate("subtitle")}
-          showDecoration={true}
-        >
-          <RegisterForm
-            onSuccess={handleRegisterSuccess}
-            onError={handleRegisterError}
-            showLoginLink={true}
-            showGoogleOAuth={true}
-          />
-        </AuthLayout>
-      </div>
-    </div>
+    <AuthLayout
+      title={translate("title")}
+      subtitle={translate("subtitle")}
+      type="register"
+      showBackLink={false}
+    >
+      <RegisterForm
+        onSuccess={handleRegisterSuccess}
+        onError={handleRegisterError}
+        showLoginLink={true}
+        showGoogleOAuth={true}
+      />
+    </AuthLayout>
   );
 }

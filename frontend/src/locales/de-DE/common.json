@@ -1,12 +1,17 @@
 {
+  "loadingNinjaTube": "NinjaTube wird geladen...",
+  "login": "Anmelden",
+  "register": "Registrieren",
+  "dashboard": "Dashboard",
+  "help": "Hilfe",
   "notFound": {
-    "title": "Ups! Seite nicht gefunden",
-    "description": "Die Seite, die Sie suchen, existiert nicht oder wurde verschoben.",
+    "title": "Hoppla! Seite nicht gefunden",
+    "description": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
     "goHome": "Zur Startseite",
     "goBack": "Zurück",
     "searchTip": "Suchen Sie etwas Bestimmtes?",
     "searchDescription": "Versuchen Sie diese beliebten Seiten:",
-    "needHelp": "Noch Probleme?",
+    "needHelp": "Haben Sie immer noch Probleme?",
     "contactSupport": "Support kontaktieren"
   }
 }

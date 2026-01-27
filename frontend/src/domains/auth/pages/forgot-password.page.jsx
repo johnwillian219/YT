@@ -1,52 +1,45 @@
 // frontend/src/domains/auth/pages/forgot-password.page.jsx
-import React from "react";
-import { AnimatedBackground } from "./background";
-import { useTheme } from "../../../app/bootstrap/theme-provider";
+import React, { useEffect } from "react";
 import { useI18n } from "../../../app/bootstrap/i18n-provider";
-import ForgotPasswordForm from "../ui/forgot-password-form/ForgotPasswordForm";
 import AuthLayout from "../ui/auth-layout/AuthLayout";
+import ForgotPasswordForm from "../ui/forgot-password-form/ForgotPasswordForm";
 
 export default function ForgotPasswordPage() {
-  const { theme } = useTheme();
-  const { t } = useI18n();
+  const { t, locale, isLoading: i18nLoading, translations } = useI18n();
 
-  // Função auxiliar para traduções
+  useEffect(() => {
+    console.log("🔍 DEBUG ForgotPasswordPage:");
+    console.log("🌐 Idioma atual:", locale);
+    console.log("🔄 Carregando i18n?:", i18nLoading);
+    console.log("📚 Traduções carregadas:", Object.keys(translations));
+    console.log(
+      "📖 Módulo forgot-password existe?:",
+      !!translations["forgot-password"],
+    );
+  }, [locale, i18nLoading, translations]);
+
   const translate = (key) => t(key, "forgot-password");
 
   const handleSuccess = (email) => {
-    console.log("Email de recuperação enviado para:", email);
-    // Você pode mostrar um toast ou notificação aqui
+    console.log(`Email de recuperação enviado para: ${email}`);
   };
 
   const handleError = (error) => {
     console.error("Forgot password error:", error);
-    // Você pode mostrar um toast ou notificação aqui
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center p-4 overflow-hidden">
-      <AnimatedBackground />
-
-      {theme === "cyberpunk" && (
-        <>
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyberpunk-pink-30 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-cyberpunk-blue-30 rounded-full blur-3xl animate-pulse delay-1000" />
-        </>
-      )}
-
-      <div className="relative w-full max-w-md z-20">
-        <AuthLayout
-          title={translate("title")}
-          subtitle={translate("subtitle")}
-          showDecoration={true}
-        >
-          <ForgotPasswordForm
-            onSuccess={handleSuccess}
-            onError={handleError}
-            showBackLink={true}
-          />
-        </AuthLayout>
-      </div>
-    </div>
+    <AuthLayout
+      title={translate("title")}
+      subtitle={translate("subtitle")}
+      type="forgot-password"
+      showBackLink={false}
+    >
+      <ForgotPasswordForm
+        onSuccess={handleSuccess}
+        onError={handleError}
+        showBackLink={true}
+      />
+    </AuthLayout>
   );
 }

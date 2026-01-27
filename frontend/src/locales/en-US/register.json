@@ -1,28 +1,71 @@
 {
-  "title": "Create Account",
-  "subtitle": "Start your YouTube journey",
+  "title": "Create your account",
+  "subtitle": "Sign up with Google or email",
+  "slogan": "Turn your channel into a digital empire",
+  "stats": {
+    "views": {
+      "value": "2.5M+",
+      "label": "Views"
+    },
+    "channels": {
+      "value": "50K+",
+      "label": "Channels"
+    },
+    "growth": {
+      "value": "300%",
+      "label": "Growth"
+    }
+  },
   "form": {
     "email": {
       "label": "Email",
-      "placeholder": "Enter your email"
+      "placeholder": "Enter your email",
+      "errors": {
+        "required": "Email is required",
+        "invalid": "Invalid email"
+      }
     },
     "password": {
       "label": "Password",
-      "placeholder": "Enter your password"
+      "placeholder": "Enter your password",
+      "errors": {
+        "required": "Password is required",
+        "minLength": "Password must be at least 6 characters"
+      }
     },
     "confirmPassword": {
-      "label": "Confirm Password",
-      "placeholder": "Confirm your password"
+      "label": "Confirm password",
+      "placeholder": "Confirm your password",
+      "errors": {
+        "required": "Please confirm your password",
+        "mismatch": "Passwords do not match"
+      }
     },
     "terms": {
-      "label": "I accept the {termsLink} and {privacyLink}",
-      "terms": "Terms",
-      "privacy": "Privacy"
+      "label": "I agree to the {termsLink} and {privacyLink}",
+      "accept": "I agree to the",
+      "and": "and",
+      "terms": "Terms of Use",
+      "privacy": "Privacy Policy",
+      "errors": {
+        "required": "You must accept the terms"
+      }
     },
-    "submit": "CREATE ACCOUNT"
+    "submit": "Create account",
+    "submit_loading": "Creating account...",
+    "divider": "Or",
+    "providers": {
+      "google": "Sign up with Google"
+    }
+  },
+  "errors": {
+    "email_exists": "Email already registered",
+    "weak_password": "Password is too weak",
+    "generic": "Error creating account. Please try again.",
+    "network": "Connection error. Check your internet."
   },
   "login": {
     "text": "Already have an account?",
-    "link": "Login"
+    "link": "Log in"
   }
 }

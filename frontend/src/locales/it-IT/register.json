@@ -1,25 +1,68 @@
 {
-  "title": "Crea un account",
-  "subtitle": "Inizia il tuo percorso su YouTube",
+  "title": "Crea il tuo account",
+  "subtitle": "Registrati con Google o email",
+  "slogan": "Trasforma il tuo canale in un impero digitale",
+  "stats": {
+    "views": {
+      "value": "2.5M+",
+      "label": "Visualizzazioni"
+    },
+    "channels": {
+      "value": "50K+",
+      "label": "Canali"
+    },
+    "growth": {
+      "value": "300%",
+      "label": "Crescita"
+    }
+  },
   "form": {
     "email": {
       "label": "Email",
-      "placeholder": "Inserisci la tua email"
+      "placeholder": "Inserisci la tua email",
+      "errors": {
+        "required": "L’email è obbligatoria",
+        "invalid": "Email non valida"
+      }
     },
     "password": {
       "label": "Password",
-      "placeholder": "Inserisci la tua password"
+      "placeholder": "Inserisci la tua password",
+      "errors": {
+        "required": "La password è obbligatoria",
+        "minLength": "La password deve contenere almeno 6 caratteri"
+      }
     },
     "confirmPassword": {
       "label": "Conferma password",
-      "placeholder": "Conferma la password"
+      "placeholder": "Conferma la tua password",
+      "errors": {
+        "required": "Conferma la password",
+        "mismatch": "Le password non coincidono"
+      }
     },
     "terms": {
       "label": "Accetto i {termsLink} e la {privacyLink}",
-      "terms": "Termini",
-      "privacy": "Privacy"
+      "accept": "Accetto i",
+      "and": "e la",
+      "terms": "Termini di utilizzo",
+      "privacy": "Informativa sulla privacy",
+      "errors": {
+        "required": "Devi accettare i termini"
+      }
     },
-    "submit": "CREA ACCOUNT"
+    "submit": "Crea account",
+    "submit_loading": "Creazione account...",
+    "divider": "Oppure",
+    "providers": {
+      "google": "Registrati con Google"
+    }
+  },
+  "errors": {
+    "email_exists": "Email già registrata",
+    "weak_password": "Password troppo debole",
+    "generic": "Errore durante la creazione dell’account. Riprova.",
+    "network": "Errore di connessione. Controlla la tua rete."
   },
   "login": {
     "text": "Hai già un account?",

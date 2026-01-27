@@ -5,38 +5,36 @@ import AuthLayout from "../ui/auth-layout/AuthLayout";
 import LoginForm from "../ui/login-form/LoginForm";
 
 export default function LoginPage() {
-  const { t, locale, isLoading } = useI18n();
+  const { t, locale, isLoading: i18nLoading, translations } = useI18n();
 
-  // Função de tradução específica para o módulo login
-  const translate = (key, params) => t(key, "login", params);
-
-  // Debug para verificar as traduções
+  // Debug para verificar traduções
   useEffect(() => {
-    console.log("🌐 LoginPage - Idioma:", locale);
-    console.log("🌐 LoginPage - Carregando?", isLoading);
-    console.log("🌐 Teste tradução título:", translate("title"));
-  }, [locale, isLoading]);
+    console.log("🔍 DEBUG LoginPage:");
+    console.log("🌐 Idioma atual:", locale);
+    console.log("🔄 Carregando i18n?:", i18nLoading);
+    console.log("📚 Traduções carregadas:", Object.keys(translations));
+    console.log("📖 Módulo login existe?:", !!translations.login);
+    if (translations.login) {
+      console.log("📝 Conteúdo do login:", translations.login);
+    }
+  }, [locale, i18nLoading, translations]);
 
-  const handleLoginSuccess = () => {
-    window.location.href = "/dashboard";
-  };
-
-  const handleLoginError = (error) => {
-    console.error("Login error:", error);
-  };
+  // CORREÇÃO: Usar igual ao forgot-password
+  const translate = (key) => t(key, "login");
 
   return (
     <AuthLayout
       title={translate("title")}
       subtitle={translate("subtitle")}
-      showDecoration={true}
+      type="login"
+      showBackLink={false}
     >
       <LoginForm
-        onSuccess={handleLoginSuccess}
-        onError={handleLoginError}
+        onSuccess={() => (window.location.href = "/dashboard")}
+        onError={(error) => console.error("Login error:", error)}
         showRegisterLink={true}
         showForgotPassword={true}
-        showGoogleOAuth={true}
+        showProviders={true}
       />
     </AuthLayout>
   );

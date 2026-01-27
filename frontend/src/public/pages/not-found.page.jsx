@@ -127,26 +127,26 @@ const NotFoundPage = () => {
     },
   };
 
-  // Links rápidos usando apenas os textos disponíveis
+  // Links rápidos - agora traduzidos!
   const quickLinks = [
     {
       to: "/auth/login",
-      label: "Login",
+      key: "login", // Mudamos para key
       icon: LockClosedIcon,
     },
     {
       to: "/auth/register",
-      label: "Registrar",
+      key: "register", // Mudamos para key
       icon: UserPlusIcon,
     },
     {
       to: "/dashboard",
-      label: "Dashboard",
+      key: "dashboard", // Mudamos para key
       icon: ChartBarIcon,
     },
     {
       to: "/help",
-      label: "Ajuda",
+      key: "help", // Mudamos para key
       icon: QuestionMarkCircleIcon,
     },
   ];
@@ -289,7 +289,7 @@ const NotFoundPage = () => {
                         <IconComponent className="w-6 h-6 md:w-8 md:h-8" />
                       </div>
                       <span className="font-medium text-sm md:text-base text-center">
-                        {link.label}
+                        {t(link.key)} {/* Agora traduzido! */}
                       </span>
                     </Link>
                   </motion.div>

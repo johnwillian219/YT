@@ -1,11 +1,16 @@
 {
+  "loadingNinjaTube": "Loading NinjaTube...",
+  "login": "Login",
+  "register": "Register",
+  "dashboard": "Dashboard",
+  "help": "Help",
   "notFound": {
     "title": "Oops! Page Not Found",
-    "description": "The page you are looking for does not exist or has been moved.",
-    "goHome": "Go to Home Page",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "goHome": "Go to Homepage",
     "goBack": "Go Back",
     "searchTip": "Looking for something specific?",
-    "searchDescription": "Try one of these popular pages:",
+    "searchDescription": "Try these popular pages:",
     "needHelp": "Still having trouble?",
     "contactSupport": "Contact Support"
   }

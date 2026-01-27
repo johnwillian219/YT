@@ -1,23 +1,54 @@
 {
-  "title": "Bon retour",
-  "subtitle": "Accédez à votre tableau de bord analytique",
+  "title": "Accédez à votre compte",
+  "subtitle": "Connectez-vous avec Google ou email",
+  "slogan": "Maîtrisez YouTube comme un Ninja",
+  "stats": {
+    "views": {
+      "value": "2.5M+",
+      "label": "Vues"
+    },
+    "channels": {
+      "value": "50K+",
+      "label": "Chaînes"
+    },
+    "growth": {
+      "value": "300%",
+      "label": "Croissance"
+    }
+  },
   "form": {
     "email": {
-      "label": "Adresse e-mail",
-      "placeholder": "Entrez votre adresse e-mail"
+      "label": "Email",
+      "placeholder": "Entrez votre email",
+      "errors": {
+        "required": "L'email est obligatoire",
+        "invalid": "Email invalide"
+      }
     },
     "password": {
       "label": "Mot de passe",
       "placeholder": "Entrez votre mot de passe",
-      "forgot": "Mot de passe oublié ?"
+      "forgot": "Mot de passe oublié ?",
+      "errors": {
+        "required": "Le mot de passe est obligatoire",
+        "minLength": "Le mot de passe doit contenir au moins 6 caractères"
+      }
     },
     "remember": "Se souvenir de moi pendant 30 jours",
-    "submit": "SE CONNECTER MAINTENANT",
+    "submit": "SE CONNECTER",
+    "submit_loading": "Connexion...",
     "divider": "Ou continuer avec",
-    "google": "Continuer avec Google"
+    "providers": {
+      "google": "Continuer avec Google"
+    }
+  },
+  "errors": {
+    "invalid_credentials": "Email ou mot de passe incorrect",
+    "generic": "Erreur de connexion. Réessayez.",
+    "network": "Erreur de connexion. Vérifiez votre internet."
   },
   "register": {
-    "text": "Vous n’avez pas de compte ?",
-    "link": "S’inscrire"
+    "text": "Vous n'avez pas de compte ?",
+    "link": "S'inscrire"
   }
 }

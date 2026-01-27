@@ -18,7 +18,7 @@ const LoadingSpinner = () => {
         </div>
 
         {/* Texto */}
-        <div className="text-gray-300 text-sm">Carregando NinjaTube...</div>
+        <div className="text-gray-300 text-sm">NinjaTube...</div>
       </div>
     </div>
   );

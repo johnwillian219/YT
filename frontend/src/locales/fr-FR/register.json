@@ -1,25 +1,68 @@
 {
-  "title": "Créer un compte",
-  "subtitle": "Commencez votre aventure sur YouTube",
+  "title": "Créez votre compte",
+  "subtitle": "Inscrivez-vous avec Google ou par e-mail",
+  "slogan": "Transformez votre chaîne en un empire numérique",
+  "stats": {
+    "views": {
+      "value": "2.5M+",
+      "label": "Vues"
+    },
+    "channels": {
+      "value": "50K+",
+      "label": "Chaînes"
+    },
+    "growth": {
+      "value": "300%",
+      "label": "Croissance"
+    }
+  },
   "form": {
     "email": {
-      "label": "Adresse e-mail",
-      "placeholder": "Entrez votre adresse e-mail"
+      "label": "E-mail",
+      "placeholder": "Entrez votre e-mail",
+      "errors": {
+        "required": "L’e-mail est obligatoire",
+        "invalid": "E-mail invalide"
+      }
     },
     "password": {
       "label": "Mot de passe",
-      "placeholder": "Entrez votre mot de passe"
+      "placeholder": "Entrez votre mot de passe",
+      "errors": {
+        "required": "Le mot de passe est obligatoire",
+        "minLength": "Le mot de passe doit contenir au moins 6 caractères"
+      }
     },
     "confirmPassword": {
       "label": "Confirmer le mot de passe",
-      "placeholder": "Confirmez votre mot de passe"
+      "placeholder": "Confirmez votre mot de passe",
+      "errors": {
+        "required": "Veuillez confirmer votre mot de passe",
+        "mismatch": "Les mots de passe ne correspondent pas"
+      }
     },
     "terms": {
       "label": "J’accepte les {termsLink} et la {privacyLink}",
-      "terms": "Conditions",
-      "privacy": "Confidentialité"
+      "accept": "J’accepte les",
+      "and": "et la",
+      "terms": "Conditions d’utilisation",
+      "privacy": "Politique de confidentialité",
+      "errors": {
+        "required": "Vous devez accepter les conditions"
+      }
     },
-    "submit": "CRÉER UN COMPTE"
+    "submit": "Créer un compte",
+    "submit_loading": "Création du compte...",
+    "divider": "Ou",
+    "providers": {
+      "google": "S’inscrire avec Google"
+    }
+  },
+  "errors": {
+    "email_exists": "E-mail déjà enregistré",
+    "weak_password": "Mot de passe trop faible",
+    "generic": "Erreur lors de la création du compte. Veuillez réessayer.",
+    "network": "Erreur de connexion. Vérifiez votre connexion internet."
   },
   "login": {
     "text": "Vous avez déjà un compte ?",

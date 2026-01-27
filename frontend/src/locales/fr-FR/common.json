@@ -1,12 +1,17 @@
 {
+  "loadingNinjaTube": "Chargement de NinjaTube...",
+  "login": "Connexion",
+  "register": "S'inscrire",
+  "dashboard": "Tableau de Bord",
+  "help": "Aide",
   "notFound": {
-    "title": "Oups ! Page introuvable",
+    "title": "Oups ! Page Non Trouvée",
     "description": "La page que vous recherchez n'existe pas ou a été déplacée.",
-    "goHome": "Aller à la page d'accueil",
+    "goHome": "Aller à la Page d'Accueil",
     "goBack": "Retour",
-    "searchTip": "Vous cherchez quelque chose de précis ?",
-    "searchDescription": "Essayez l'une de ces pages populaires :",
+    "searchTip": "Vous cherchez quelque chose de spécifique ?",
+    "searchDescription": "Essayez ces pages populaires :",
     "needHelp": "Vous avez encore des problèmes ?",
-    "contactSupport": "Contacter le support"
+    "contactSupport": "Contacter le Support"
   }
 }

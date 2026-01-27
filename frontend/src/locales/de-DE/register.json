@@ -1,28 +1,71 @@
 {
-  "title": "Konto erstellen",
-  "subtitle": "Starte deine YouTube-Reise",
+  "title": "Erstelle dein Konto",
+  "subtitle": "Registriere dich mit Google oder E-Mail",
+  "slogan": "Verwandle deinen Kanal in ein digitales Imperium",
+  "stats": {
+    "views": {
+      "value": "2.5M+",
+      "label": "Aufrufe"
+    },
+    "channels": {
+      "value": "50K+",
+      "label": "Kanäle"
+    },
+    "growth": {
+      "value": "300%",
+      "label": "Wachstum"
+    }
+  },
   "form": {
     "email": {
-      "label": "E-Mail-Adresse",
-      "placeholder": "E-Mail-Adresse eingeben"
+      "label": "E-Mail",
+      "placeholder": "Gib deine E-Mail ein",
+      "errors": {
+        "required": "E-Mail ist erforderlich",
+        "invalid": "Ungültige E-Mail-Adresse"
+      }
     },
     "password": {
       "label": "Passwort",
-      "placeholder": "Passwort eingeben"
+      "placeholder": "Gib dein Passwort ein",
+      "errors": {
+        "required": "Passwort ist erforderlich",
+        "minLength": "Das Passwort muss mindestens 6 Zeichen haben"
+      }
     },
     "confirmPassword": {
       "label": "Passwort bestätigen",
-      "placeholder": "Passwort bestätigen"
+      "placeholder": "Bestätige dein Passwort",
+      "errors": {
+        "required": "Bitte bestätige dein Passwort",
+        "mismatch": "Die Passwörter stimmen nicht überein"
+      }
     },
     "terms": {
       "label": "Ich akzeptiere die {termsLink} und die {privacyLink}",
+      "accept": "Ich akzeptiere die",
+      "and": "und die",
       "terms": "Nutzungsbedingungen",
-      "privacy": "Datenschutz"
+      "privacy": "Datenschutzerklärung",
+      "errors": {
+        "required": "Du musst die Bedingungen akzeptieren"
+      }
     },
-    "submit": "KONTO ERSTELLEN"
+    "submit": "Konto erstellen",
+    "submit_loading": "Konto wird erstellt...",
+    "divider": "Oder",
+    "providers": {
+      "google": "Mit Google registrieren"
+    }
+  },
+  "errors": {
+    "email_exists": "E-Mail ist bereits registriert",
+    "weak_password": "Passwort ist zu schwach",
+    "generic": "Fehler beim Erstellen des Kontos. Bitte versuche es erneut.",
+    "network": "Verbindungsfehler. Überprüfe deine Internetverbindung."
   },
   "login": {
-    "text": "Bereits ein Konto?",
+    "text": "Du hast bereits ein Konto?",
     "link": "Anmelden"
   }
 }

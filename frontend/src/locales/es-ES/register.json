@@ -1,28 +1,71 @@
 {
-  "title": "Crear Cuenta",
-  "subtitle": "Comienza tu viaje en YouTube",
+  "title": "Crea tu cuenta",
+  "subtitle": "Regístrate con Google o correo electrónico",
+  "slogan": "Convierte tu canal en un imperio digital",
+  "stats": {
+    "views": {
+      "value": "2.5M+",
+      "label": "Vistas"
+    },
+    "channels": {
+      "value": "50K+",
+      "label": "Canales"
+    },
+    "growth": {
+      "value": "300%",
+      "label": "Crecimiento"
+    }
+  },
   "form": {
     "email": {
-      "label": "Email",
-      "placeholder": "Ingresa tu email"
+      "label": "Correo electrónico",
+      "placeholder": "Introduce tu correo",
+      "errors": {
+        "required": "El correo es obligatorio",
+        "invalid": "Correo inválido"
+      }
     },
     "password": {
       "label": "Contraseña",
-      "placeholder": "Ingresa tu contraseña"
+      "placeholder": "Introduce tu contraseña",
+      "errors": {
+        "required": "La contraseña es obligatoria",
+        "minLength": "La contraseña debe tener al menos 6 caracteres"
+      }
     },
     "confirmPassword": {
-      "label": "Confirmar Contraseña",
-      "placeholder": "Confirma tu contraseña"
+      "label": "Confirmar contraseña",
+      "placeholder": "Confirma tu contraseña",
+      "errors": {
+        "required": "Confirma tu contraseña",
+        "mismatch": "Las contraseñas no coinciden"
+      }
     },
     "terms": {
       "label": "Acepto los {termsLink} y la {privacyLink}",
-      "terms": "Términos",
-      "privacy": "Privacidad"
+      "accept": "Acepto los",
+      "and": "y la",
+      "terms": "Términos de uso",
+      "privacy": "Política de privacidad",
+      "errors": {
+        "required": "Debes aceptar los términos"
+      }
     },
-    "submit": "CREAR CUENTA"
+    "submit": "Crear cuenta",
+    "submit_loading": "Creando cuenta...",
+    "divider": "O",
+    "providers": {
+      "google": "Registrarse con Google"
+    }
+  },
+  "errors": {
+    "email_exists": "El correo ya está registrado",
+    "weak_password": "Contraseña demasiado débil",
+    "generic": "Error al crear la cuenta. Inténtalo de nuevo.",
+    "network": "Error de conexión. Verifica tu internet."
   },
   "login": {
     "text": "¿Ya tienes una cuenta?",
-    "link": "Inicia sesión"
+    "link": "Iniciar sesión"
   }
 }
